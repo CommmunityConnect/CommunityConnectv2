@@ -33,7 +33,7 @@
                     <x:Array Type="{x:Type x:String}">
                         <x:String>landingpagepic.png</x:String>
                         <!-- Replace with your image paths -->
-                        <x:String>slideshow1.png</x:String>
+                        <x:String>slide1.png</x:String>
                         <x:String>slideshow2.png</x:String>
                         <x:String>slideshow3.png</x:String>
                         <x:String>slideshow4.png</x:String>
@@ -42,7 +42,7 @@
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
-                            <Image Source="{Binding .}" Aspect="AspectFit" HeightRequest="200" />
+                            <Image Source="{Binding .}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200"/>
                         </ContentView>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
