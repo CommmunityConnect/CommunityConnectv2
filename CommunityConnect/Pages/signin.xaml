@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="CommunityConnect.Pages.signin"
+             Shell.NavBarIsVisible="false">
+
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+   <VerticalStackLayout  >
+
+        <Image Source="transparentcommunityconnectlogo.png"
+        HeightRequest="150"
+ />
+
+
+       
+        <Label 
+        Text="Sign in to continue."
+        VerticalOptions="Center" 
+        TextColor="#9DBDFF" 
+        FontSize="16"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"
+            Margin="0,20,0,0"/>
+
+        <Label 
+         Text="Do not have an account? Click Here."
+         VerticalOptions="Center" 
+         TextColor="Black"
+         FontSize="16"
+         FontAttributes="Bold"
+         HorizontalOptions="Center"
+            Margin="0,20,0,0">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                Tapped="OnLabelClicked" />
+            </Label.GestureRecognizers>
+        </Label>
+
+
+        <Label 
+        Margin="40,40,0,0"
+        Text="EMAIL"
+        VerticalOptions="Center" 
+        TextColor="#227B94"
+        FontAttributes="Bold"/>
+
+        <Frame 
+         Margin="40,0,50,0" 
+         CornerRadius="10"
+         Padding="10,10,10,10"
+         BackgroundColor="#F3EEE4">
+            <Grid Padding="0">
+                <!-- Define the column definitions to arrange items -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Email icon -->
+                <Image
+                Source="emailicon.png" 
+                WidthRequest="24"
+                HeightRequest="24"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="0"/>
+
+                <!-- Email entry field -->
+                <Entry
+                 Margin="20,0,0,0"
+                 Placeholder="Enter your email"
+                 Keyboard="Email"
+                 VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Grid.Column="1"/>
+            </Grid>
+        </Frame>
+
+        <Label 
+        Margin="40,40,0,0"
+        Text="PASSWORD"
+        VerticalOptions="Center" 
+        TextColor="#227B94"
+        FontAttributes="Bold"/>
+
+        <Frame 
+         Margin="40,0,50,0" 
+         CornerRadius="10"
+         Padding="10,10,10,10"
+         BackgroundColor="#F3EEE4">
+            <Grid Padding="0">
+                <!-- Define the column definitions to arrange items -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Email icon -->
+                <Image
+                 Source="passwordicon.png" 
+                 WidthRequest="24"
+                 HeightRequest="24"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Start"
+                 Grid.Column="0"/>
+
+                <!-- Email entry field -->
+                <Entry
+                 Margin="20,0,0,0"
+                 Placeholder="Enter your password"
+                 Keyboard="Email"
+                 VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Grid.Column="1"
+                 x:Name="password"/>
+            </Grid>
+        </Frame>
+
+
+        <HorizontalStackLayout>
+            <CheckBox
+             Margin="200,0,0,0"
+             Color="#4e7c9e"/>
+            <!--IsChecked="False" x:Name="isChecked" CheckedChanged="IsCheckedBtn" -->
+
+            <Label 
+           Margin="0,0,0,0"
+           Text="Show Password"
+           VerticalOptions="Center" 
+           TextColor="Red"
+           FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+
+
+        <Button
+        Margin="20,80,30,0"
+        Padding="50,10,50,10"
+        CornerRadius="15"
+        BackgroundColor="#4e7c9e"
+        TextColor="#FFF"
+        Text="Sign in" 
+        FontSize="18"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"
+        Clicked="BtnSignInClicked" />
+
+        <Label 
+        Margin="0,20,0,0"
+        Text="Terms and Conditions Apply"
+        VerticalOptions="Center" 
+        TextColor="#227B94"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"/>
+
+
+    </VerticalStackLayout>
+
+</ContentPage>

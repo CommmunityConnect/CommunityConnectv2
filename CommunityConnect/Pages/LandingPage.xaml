@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommunityConnect.Pages.LandingPage"
+             Shell.NavBarIsVisible="False">
+
+    <!-- Define the background as a LinearGradientBrush -->
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+
+    <VerticalStackLayout >
+        
+        
+
+        <!-- Grid to hold CarouselView, Text, and IndicatorView -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- CarouselView for the slideshow -->
+            <CarouselView x:Name="slideshow" HeightRequest="200"
+                          Grid.Row="0"
+                          IndicatorView="{x:Reference indicatorView}">
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>landingpagepic.png</x:String>
+                        <!-- Replace with your image paths -->
+                        <x:String>slideshow1.png</x:String>
+                        <x:String>slideshow2.png</x:String>
+                        <x:String>slideshow3.png</x:String>
+                        <x:String>slideshow4.png</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <Image Source="{Binding .}" Aspect="AspectFit" HeightRequest="200" />
+                        </ContentView>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Label for displaying text -->
+            <Label x:Name="textLabel"
+                   Grid.Row="1"
+                   Margin="40,150,20,0"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="#fff"
+                   FontAttributes="Bold"
+                   FontSize="16"
+                   Padding="10"
+                   Text="{Binding Source={x:Reference slideshow}, Path=CurrentItem.Text}"/>
+
+            <!-- IndicatorView for the dots -->
+            <IndicatorView x:Name="indicatorView"
+                           Grid.Row="2"
+                           Margin="0,150,0,0"
+                           IndicatorsShape="Circle"
+                           IndicatorColor="#4e7c9e"
+                           SelectedIndicatorColor="Black"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           IndicatorSize="10"/>
+        </Grid>
+
+        <!-- make the get started button to stop moving-->
+        <AbsoluteLayout>
+            <Button Text="Get Started"
+                    BackgroundColor="#4e7c9e"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    FontAttributes="Bold"
+                    Margin="100,100,50,0"
+                    Clicked="OnGetStartedButtonClicked"/>
+        </AbsoluteLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>
