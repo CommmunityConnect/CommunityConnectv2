@@ -57,9 +57,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\alerts_icon.png" />
+	  <None Remove="Resources\Images\collaboration_icon.png" />
 	  <None Remove="Resources\Images\emailicon.png" />
+	  <None Remove="Resources\Images\incident_report_icon.png" />
 	  <None Remove="Resources\Images\landingpagepic.png" />
 	  <None Remove="Resources\Images\logotransparent.png" />
+	  <None Remove="Resources\Images\map_view_icon.png" />
 	  <None Remove="Resources\Images\nameicon.png" />
 	  <None Remove="Resources\Images\passwordicon.png" />
 	  <None Remove="Resources\Images\slideshow1.png" />
