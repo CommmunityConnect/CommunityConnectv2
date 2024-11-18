@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using CommunityConnect.Pages;
+using System.Collections.ObjectModel;
 using CommunityConnect.model;
 
 namespace CommunityConnect
@@ -25,6 +26,11 @@ namespace CommunityConnect
 
 
             BindingContext = this;
+        }
+
+        private async void OnTappedIncidentReport(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new IncidentReportPage());
         }
     }
 }

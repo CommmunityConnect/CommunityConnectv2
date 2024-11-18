@@ -8,11 +8,20 @@ namespace CommunityConnect
         {
             InitializeComponent();
 
-           
-            Routing.RegisterRoute("Home", typeof(LandingPage));
-            Routing.RegisterRoute("Settings", typeof(SettingsPage));
-            Routing.RegisterRoute("Alerts", typeof(AlertsPage));
-            Routing.RegisterRoute("Forum", typeof(ForumPage));
+            //calling Routes() class
+            RegisterRoute();
+        }
+        private readonly static Type[] _types =
+            [
+                typeof(IncidentReportPage),
+            ];
+        private static void RegisterRoute()
+        {
+            foreach (var type in _types)
+            {
+                //register routes
+                Routing.RegisterRoute(type.Name, type);
+            }
         }
     }
 }

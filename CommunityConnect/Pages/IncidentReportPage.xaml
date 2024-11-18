@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CommunityConnect.ViewModel"
+             x:Class="CommunityConnect.Pages.IncidentReportPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="True">
+
+    <!-- Bind the page's BindingContext to the ViewModel -->
+    <ContentPage.BindingContext>
+        <vm:IncidentReportViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Label Text="Report Incident" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="Incident Description" Margin="0,15"/>
+
+        <Entry Placeholder="Describe the incident..." Text="{Binding Description}" />
+        <Label Text="Incident Type" Margin="0,15"/>
+        <Picker Title="Select Incident Type" ItemsSource="{Binding IncidentTypes}" SelectedItem="{Binding IncidentType}" />
+        <Label Text="Location" Margin="0,15"/>
+        <Entry Placeholder="Location of the incident..." Text="{Binding Location}" />
+        <Frame HeightRequest="200" WidthRequest="150">
+            <Image Source="{Binding Photo}" HeightRequest="180" WidthRequest="150"/>
+        </Frame>
+        <Button Text="Upload Photo" Command="{Binding UploadPhotoCommand}" />
+        <Button Text="Submit Report" Command="{Binding SubmitReportCommand}" BackgroundColor="DarkBlue" TextColor="White" Margin="0,20,0,0"/>
+    </StackLayout>
+</ContentPage>

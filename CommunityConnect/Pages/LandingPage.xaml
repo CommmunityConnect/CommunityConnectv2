@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.LandingPage"
+             xmlns:vm="clr-namespace:CommunityConnect.ViewModel"
+             Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:LandingPageViewModel/>
+    </ContentPage.BindingContext>
 
     <!-- Define the background as a LinearGradientBrush -->
     <ContentPage.Background>

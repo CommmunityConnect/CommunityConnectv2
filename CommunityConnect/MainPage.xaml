@@ -28,6 +28,9 @@
                                CornerRadius="8"
                                Margin="20"
                                BackgroundColor="#4e7c9e">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTappedIncidentReport" />
+                            </Frame.GestureRecognizers>
                             <StackLayout HorizontalOptions="Center">
                                 <Image Source="{Binding Icon}" HeightRequest="50" />
                                 <Label Text="{Binding Name}"

@@ -4,7 +4,8 @@
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              x:Class="CommunityConnect.Pages.signup"
              Title="signup"
-             Shell.NavBarIsVisible="false">
+             Shell.NavBarIsVisible="false"
+             Shell.TabBarIsVisible="False">
 
 
     <ContentPage.Background>
