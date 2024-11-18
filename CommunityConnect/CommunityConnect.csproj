@@ -60,12 +60,14 @@
 	  <None Remove="Resources\Images\alerts_icon.png" />
 	  <None Remove="Resources\Images\collaboration_icon.png" />
 	  <None Remove="Resources\Images\emailicon.png" />
+	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\incident_report_icon.png" />
 	  <None Remove="Resources\Images\landingpagepic.png" />
 	  <None Remove="Resources\Images\logotransparent.png" />
 	  <None Remove="Resources\Images\map_view_icon.png" />
 	  <None Remove="Resources\Images\nameicon.png" />
 	  <None Remove="Resources\Images\passwordicon.png" />
+	  <None Remove="Resources\Images\setting.png" />
 	  <None Remove="Resources\Images\slideshow1.png" />
 	  <None Remove="Resources\Images\slideshow2.png" />
 	  <None Remove="Resources\Images\slideshow3.png" />
@@ -84,10 +86,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\AlertsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\forgotPassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\ForumPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\LandingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\signin.xaml">

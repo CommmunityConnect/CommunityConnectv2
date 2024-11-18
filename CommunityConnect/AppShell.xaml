@@ -6,14 +6,29 @@
     xmlns:local="clr-namespace:CommunityConnect"
     xmlns:Pages="clr-namespace:CommunityConnect.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Title="CommunityConnect">
+    Title="CommunityConnect"
+    Shell.NavBarIsVisible="False">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate Pages:LandingPage}"
-        Route="MainPage" />
+   
+    <TabBar >
+        <ShellContent Title="Home"
+                      ContentTemplate="{DataTemplate Pages:LandingPage}"
+                      Icon="home_icon.png"
+                      Route="Home" />
+        <ShellContent Title="Settings"
+                      ContentTemplate="{DataTemplate Pages:SettingsPage}"
+                      Icon="setting.png"
+                      Route="Settings" />
+        <ShellContent Title="Alerts"
+                      ContentTemplate="{DataTemplate Pages:AlertsPage}"
+                      Icon="alert.png"
+                      Route="Alerts" />
+        <ShellContent Title="Forum"
+                      ContentTemplate="{DataTemplate Pages:ForumPage}"
+                      Icon="chat.png"
+                      Route="Forum" />
+    </TabBar>
 
-     
 
 
 </Shell>
