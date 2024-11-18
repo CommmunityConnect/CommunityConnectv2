@@ -14,12 +14,13 @@ namespace CommunityConnect
 
             MenuItems = new ObservableCollection<CommunityConnect.model.MenuItem>
 {
-    new CommunityConnect.model.MenuItem { Name = "Real-Time Incident Reporting", Icon = "incident_report_icon.png" },
-    new CommunityConnect.model.MenuItem { Name = "Real-Time Alerts (Sebatakgomo)", Icon = "alerts_icon.png" },
-    new CommunityConnect.model.MenuItem { Name = "Incident Feed/Map View", Icon = "map_view_icon.png" },
-    new CommunityConnect.model.MenuItem { Name = "Community Collaboration", Icon = "collaboration_icon.png" },
-    new CommunityConnect.model.MenuItem { Name = "People of Interest", Icon = "missing_people_icon.png" },
-    new CommunityConnect.model.MenuItem { Name = "User Profile and Contributions", Icon = "user_profile_icon.png" }
+    new CommunityConnect.model.MenuItem { Name = "Real-Time Incident Reporting", Icon = "complaint.png" },
+    new CommunityConnect.model.MenuItem { Name = "Real-Time Alerts (Sebatakgomo)", Icon = "alert.png" },
+    new CommunityConnect.model.MenuItem { Name = "Incident Feed/Map View", Icon = "satelliteview.png" },
+    new CommunityConnect.model.MenuItem { Name = "Community Collaboration", Icon = "chat.png" },
+    new CommunityConnect.model.MenuItem { Name = "People of Interest", Icon = "question.png" },
+    new CommunityConnect.model.MenuItem { Name = "User Profile and Contributions", Icon = "user.png" },
+     new CommunityConnect.model.MenuItem { Name = "Emergency Contact", Icon = "emergencycall.png" }
 };
 
 

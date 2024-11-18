@@ -2,10 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.MainPage">
-<!-- This page should hold the main page with the menus and stuff-->
+
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <!-- This page should hold the main page with the menus-->
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="CommunityConnect Menu"
+        <VerticalStackLayout Padding="30" Spacing="20">
+            <Label Text="CommunityConnect Menu" FontSize="25"
                    Style="{StaticResource Heading1}"
                    HorizontalOptions="Center" />
 
@@ -18,8 +26,8 @@
                     <DataTemplate>
                         <Frame Padding="10"
                                CornerRadius="8"
-                               Margin="5"
-                               BackgroundColor="LightGray">
+                               Margin="20"
+                               BackgroundColor="#4e7c9e">
                             <StackLayout HorizontalOptions="Center">
                                 <Image Source="{Binding Icon}" HeightRequest="50" />
                                 <Label Text="{Binding Name}"
@@ -33,4 +41,6 @@
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
+    
+    
 </ContentPage>
