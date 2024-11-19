@@ -48,7 +48,7 @@
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
-                            <Image Source="{Binding .}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200"/>
+                            <Image Source="{Binding}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200" />
                         </ContentView>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
@@ -87,7 +87,7 @@
                     HeightRequest="50"
                     WidthRequest="200"
                     FontAttributes="Bold"
-                    Margin="100,100,50,0"
+                    Margin="100,200,50,0"
                     Clicked="OnGetStartedButtonClicked"/>
         </AbsoluteLayout>
         
