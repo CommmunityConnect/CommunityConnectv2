@@ -37,12 +37,12 @@
                           IndicatorView="{x:Reference indicatorView}">
                 <CarouselView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>landingpagepic.png</x:String>
+                        <x:String>preview.png</x:String>
                         <!-- Replace with your image paths -->
-                        <x:String>slide1.png</x:String>
-                        <x:String>slideshow2.png</x:String>
-                        <x:String>slideshow3.png</x:String>
-                        <x:String>slideshow4.png</x:String>
+                        <x:String>staysafe.png</x:String>
+                        <x:String>friends.png</x:String>
+                        <x:String>young.png</x:String>
+                        <x:String>tech.png</x:String>
                     </x:Array>
                 </CarouselView.ItemsSource>
                 <CarouselView.ItemTemplate>
