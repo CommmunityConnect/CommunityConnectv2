@@ -23,10 +23,10 @@
                       ContentTemplate="{DataTemplate Pages:AlertsPage}"
                       Icon="alert.png"
                       Route="Alerts" />
-        <ShellContent Title="Forum"
-                      ContentTemplate="{DataTemplate Pages:ForumPage}"
-                      Icon="chat.png"
-                      Route="Forum" />
+        <ShellContent Title="Profile"
+                      ContentTemplate="{DataTemplate Pages:Profile}"
+                      Icon="profilepic"
+                      Route="Profile" />
     </TabBar>
 
 

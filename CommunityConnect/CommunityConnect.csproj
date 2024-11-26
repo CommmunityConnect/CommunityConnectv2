@@ -67,6 +67,7 @@
 	  <None Remove="Resources\Images\map_view_icon.png" />
 	  <None Remove="Resources\Images\nameicon.png" />
 	  <None Remove="Resources\Images\passwordicon.png" />
+	  <None Remove="Resources\Images\profilepic.png" />
 	  <None Remove="Resources\Images\setting.png" />
 	  <None Remove="Resources\Images\slideshow1.png" />
 	  <None Remove="Resources\Images\slideshow2.png" />
@@ -101,6 +102,9 @@
 	  <MauiXaml Update="Pages\LandingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Profile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -113,6 +117,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Pages\NewFolder\" />
 	  <Folder Include="View\" />
 	</ItemGroup>
 
