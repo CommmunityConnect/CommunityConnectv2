@@ -28,9 +28,15 @@ namespace CommunityConnect
             BindingContext = this;
         }
 
+
         private async void OnTappedIncidentReport(object sender, TappedEventArgs e)
         {
             await Navigation.PushAsync(new IncidentReportPage());
+        }
+
+        private async void OnTappedAlerts(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new AlertsPage());
         }
     }
 }

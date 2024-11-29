@@ -17,31 +17,58 @@
                    Style="{StaticResource Heading1}"
                    HorizontalOptions="Center" />
 
-            <CollectionView ItemsSource="{Binding MenuItems}"
+            
+            <HorizontalStackLayout Margin="0, 0, 0, 10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame 
+                    CornerRadius="5" 
+                    HeightRequest="100" 
+                    WidthRequest="110" 
+                    HorizontalOptions="Center"
+                    BackgroundColor="#4e7c9e">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedIncidentReport" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout
+                        HorizontalOptions="Center">
+                        <Image Source="{Binding Icon}" HeightRequest="50" />
+                        <Label Text="{Binding Name}"
+                          HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                          FontSize="14" />
+                       </VerticalStackLayout>
+                          </Frame>
+                <Frame 
+                    WidthRequest="110"
+                   HeightRequest="100"
+                   CornerRadius="5"
+Margin="20"
+BackgroundColor="#4e7c9e">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedAlerts" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center">
+                        <Image Source="{Binding Icon}" HeightRequest="50" />
+                        <Label Text="{Binding Name}"
+        HorizontalOptions="Center"
+        FontAttributes="Bold"
+        FontSize="14" />
+                    </StackLayout>
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            
+            <!--    <CollectionView ItemsSource="{Binding MenuItems}"
                             SelectionMode="None">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Span="2" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10"
-                               CornerRadius="8"
-                               Margin="20"
-                               BackgroundColor="#4e7c9e">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTappedIncidentReport" />
-                            </Frame.GestureRecognizers>
-                            <StackLayout HorizontalOptions="Center">
-                                <Image Source="{Binding Icon}" HeightRequest="50" />
-                                <Label Text="{Binding Name}"
-                                       HorizontalOptions="Center"
-                                       FontAttributes="Bold"
-                                       FontSize="14" />
-                            </StackLayout>
-                        </Frame>
+                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView> -->
         </VerticalStackLayout>
     </ScrollView>
     
