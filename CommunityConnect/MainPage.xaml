@@ -12,65 +12,75 @@
 
     <!-- This page should hold the main page with the menus-->
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20">
-            <Label Text="CommunityConnect Menu" FontSize="25"
-                   Style="{StaticResource Heading1}"
-                   HorizontalOptions="Center" />
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <Label Text="CommunityConnect Menu" FontSize="25" Style="{StaticResource Heading1}" HorizontalOptions="Center" />
 
-            
-            <HorizontalStackLayout Margin="0, 0, 0, 10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame 
-                    CornerRadius="5" 
-                    HeightRequest="100" 
-                    WidthRequest="110" 
-                    HorizontalOptions="Center"
-                    BackgroundColor="#4e7c9e">
+            <HorizontalStackLayout Margin="0, 1, 0, 10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="5"  HeightRequest="200" WidthRequest="180"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedIncidentReport" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout
-                        HorizontalOptions="Center">
+                    <VerticalStackLayout HorizontalOptions="Center">
                         <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}"
-                          HorizontalOptions="Center"
-                           FontAttributes="Bold"
-                          FontSize="14" />
-                       </VerticalStackLayout>
-                          </Frame>
-                <Frame 
-                    WidthRequest="110"
-                   HeightRequest="100"
-                   CornerRadius="5"
-Margin="20"
-BackgroundColor="#4e7c9e">
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame WidthRequest="160" HeightRequest="200" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedAlerts" />
                     </Frame.GestureRecognizers>
-                    <StackLayout HorizontalOptions="Center">
+                    <VerticalStackLayout HorizontalOptions="Center">
                         <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}"
-        HorizontalOptions="Center"
-        FontAttributes="Bold"
-        FontSize="14" />
-                    </StackLayout>
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    </VerticalStackLayout>
                 </Frame>
-
             </HorizontalStackLayout>
 
-            
-            <!--    <CollectionView ItemsSource="{Binding MenuItems}"
-                            SelectionMode="None">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="2" Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView> -->
+            <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="5" HeightRequest="200" WidthRequest="180"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedForum" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Image Source="{Binding Icon}" HeightRequest="50" />
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame WidthRequest="160" HeightRequest="200" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedChatBot" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Image Source="{Binding Icon}" HeightRequest="50" />
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="5" HeightRequest="200" WidthRequest="180"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedEmergency" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Image Source="{Binding Icon}" HeightRequest="50" />
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame WidthRequest="160" HeightRequest="200" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedPeopleOfInterest" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Image Source="{Binding Icon}" HeightRequest="50" />
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
-    
-    
+
 </ContentPage>

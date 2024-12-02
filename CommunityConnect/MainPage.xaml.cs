@@ -38,5 +38,30 @@ namespace CommunityConnect
         {
             await Navigation.PushAsync(new AlertsPage());
         }
+
+        private async void OnTappedForum(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new ForumPage());
+        }
+
+        private async void OnTappedChatBot(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new ChatBotPage());
+
+        }
+
+        private async void OnTappedIncidentFeed(object sender, TappedEventArgs e) 
+        {
+            await Navigation.PushAsync(new IncidentFeed());
+        
+        }
+        private async void OnTappedEmergency(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new EmergencyContactPage());
+        }
+        private async void OnTappedPeopleOfInterest(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new PeopleOfInterest());
+        }
     }
 }
