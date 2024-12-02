@@ -2,11 +2,117 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.SettingsPage"
-             Title="SettingsPage">
+             Title="SettingsPage"
+              >
+
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <VerticalStackLayout>
-        <Label 
-            Text="Settings Page"
+        <Label Margin="10"
+            Text="Settings Page" TextColor="#1c2c38"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        
+        <!-- change password frame -->
+        <Frame
+ HeightRequest="75"
+ WidthRequest="350"
+ CornerRadius="10"
+ Padding="0" Margin="15"
+  BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" >
+
+            <HorizontalStackLayout>
+                <Image
+         Source="reset_password.png"
+         Margin="20"
+         Aspect="AspectFit"
+         HeightRequest="30"
+         WidthRequest="30"
+         HorizontalOptions="StartAndExpand" />
+                <Label 
+         Text="Change Password"
+         TextColor="Black"
+         FontAttributes="Bold"
+         FontSize="15"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />
+                <Image
+         Source="right_arrow.png"
+         Margin="88"
+         Aspect="AspectFit"
+         HeightRequest="20"
+         WidthRequest="20"
+         HorizontalOptions="EndAndExpand"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <!-- delete account frame -->
+        <Frame
+ HeightRequest="75"
+ WidthRequest="350"
+ CornerRadius="10"
+ Padding="0" BorderColor="#4e7c9e"
+   BackgroundColor="#4e7c9e">
+
+            <HorizontalStackLayout>
+                <Image
+         Source="delete_user.png"
+         Margin="20"
+         Aspect="AspectFit"
+         HeightRequest="30"
+         WidthRequest="30"
+         HorizontalOptions="StartAndExpand" />
+                <Label 
+         Text="Delete Account"
+         TextColor="Black"
+         FontAttributes="Bold"
+         FontSize="15"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />
+                <Image
+         Source="right_arrow.png"
+         Margin="110"
+         Aspect="AspectFit"
+         HeightRequest="20"
+         WidthRequest="20"
+         HorizontalOptions="EndAndExpand"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <!-- notification settings frame -->
+        <Frame
+ HeightRequest="75"
+ WidthRequest="350"
+ CornerRadius="10"
+ Padding="0" Margin="20"
+  BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" >
+
+            <HorizontalStackLayout>
+                <Image
+         Source="notification.png"
+         Margin="20"
+         Aspect="AspectFit"
+         HeightRequest="30"
+         WidthRequest="30"
+         HorizontalOptions="StartAndExpand" />
+                <Label 
+         Text="Notification Settings"
+         TextColor="Black"
+         FontAttributes="Bold"
+         FontSize="15"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />
+                <Image
+         Source="right_arrow.png"
+         Margin="70"
+         Aspect="AspectFit"
+         HeightRequest="20"
+         WidthRequest="20"
+         HorizontalOptions="EndAndExpand"/>
+            </HorizontalStackLayout>
+        </Frame>
+
     </VerticalStackLayout>
 </ContentPage>

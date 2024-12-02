@@ -57,21 +57,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\about_app.png" />
 	  <None Remove="Resources\Images\alerts_icon.png" />
 	  <None Remove="Resources\Images\collaboration_icon.png" />
+	  <None Remove="Resources\Images\delete_user.png" />
 	  <None Remove="Resources\Images\emailicon.png" />
+	  <None Remove="Resources\Images\help.png" />
 	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\incident_report_icon.png" />
 	  <None Remove="Resources\Images\landingpagepic.png" />
 	  <None Remove="Resources\Images\logotransparent.png" />
+	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\map_view_icon.png" />
 	  <None Remove="Resources\Images\nameicon.png" />
+	  <None Remove="Resources\Images\notification.png" />
 	  <None Remove="Resources\Images\passwordicon.png" />
 	  <None Remove="Resources\Images\profilepic.png" />
+	  <None Remove="Resources\Images\rate_app.png" />
+	  <None Remove="Resources\Images\reset_password.png" />
+	  <None Remove="Resources\Images\right_arrow.png" />
 	  <None Remove="Resources\Images\setting.png" />
 	  <None Remove="Resources\Images\slideshow1.png" />
 	  <None Remove="Resources\Images\slideshow2.png" />
 	  <None Remove="Resources\Images\slideshow3.png" />
+	  <None Remove="Resources\Images\terms_and_conditions.png" />
 	  <None Remove="Resources\Raw\comconregister.json" />
 	  <None Remove="Resources\Raw\forgotdude.json" />
 	  <None Remove="Resources\Raw\register.json" />
