@@ -22,24 +22,45 @@
                    FontSize="24" 
                    HorizontalOptions="Center" />
 
-            <Entry x:Name="UsernameEntry" 
-                   Placeholder="Username" 
-                   Keyboard="Text"
-                   MaxLength="50" />
-
-            <Entry x:Name="PasswordEntry" 
-                   Placeholder="Password" 
-                   IsPassword="True"
-                   MaxLength="50" />
-
-            <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
-                <CheckBox x:Name="ShowPasswordCheckBox" 
-                          CheckedChanged="OnShowPasswordToggled" />
-                <Label Text="Show Password" 
-                       VerticalOptions="Center" />
-            </HorizontalStackLayout>
+            <Border Stroke="Transparent" 
+                    StrokeThickness="1" 
+                    Background="Transparent" 
+                    Padding="10">
+                <Grid ColumnDefinitions="Auto,*">
+                    <Image Grid.Column="0" 
+                           Source="user.png" 
+                           WidthRequest="25" 
+                           HeightRequest="25" 
+                           Margin="0,0,10,0"/>
+                    <Entry Grid.Column="1" 
+                           x:Name="UsernameEntry" 
+                           Placeholder="Username" 
+                           Keyboard="Text"
+                           MaxLength="50" />
+                </Grid>
+            </Border>
+            <Border Stroke="Transparent" 
+                    StrokeThickness="1" 
+                    Background="Transparent" 
+                    Padding="10">
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Image Grid.Column="0" 
+                           Source="passwordicon.png" 
+                           WidthRequest="25" 
+                           HeightRequest="25" 
+                           Margin="0,0,10,0"/>
+                    <Entry Grid.Column="1" 
+                           x:Name="PasswordEntry" 
+                           Placeholder="Password" 
+                           IsPassword="True"
+                           MaxLength="50" />
+                  
+                </Grid>
+            </Border>
 
             <Button Text="Sign In" 
+                    TextColor="Black"
+                    BackgroundColor="#4e7c9e"
                     Clicked="BtnSignInClicked" 
                     HorizontalOptions="Center" 
                     WidthRequest="200" />
@@ -49,7 +70,7 @@
                     <FormattedString>
                         <Span Text="Don't have an account? " />
                         <Span Text="Sign Up" 
-                              TextColor="#4e7c9e"
+                              TextColor="White"
                               FontAttributes="Bold">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnLabelClicked" />

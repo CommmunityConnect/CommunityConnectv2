@@ -16,67 +16,67 @@
             <Label Text="CommunityConnect Menu" FontSize="25" Style="{StaticResource Heading1}" HorizontalOptions="Center" />
 
             <HorizontalStackLayout Margin="0, 1, 0, 10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame CornerRadius="5"  HeightRequest="200" WidthRequest="180"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <Frame CornerRadius="5"  HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedIncidentReport" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Image Source="complaint.png " HeightRequest="50" />
+                        <Label Text="IncidentReport" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame WidthRequest="160" HeightRequest="200" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedAlerts" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Image Source="alert.png" HeightRequest="50" />
+                        <Label Text="Real Time Alert (Sebatakgomo)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
                     </VerticalStackLayout>
                 </Frame>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame CornerRadius="5" HeightRequest="200" WidthRequest="180"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+            <HorizontalStackLayout Margin="0, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedForum" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Image Source="community" HeightRequest="50" />
+                        <Label Text="Community Collaboration" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame WidthRequest="160" HeightRequest="200" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedChatBot" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Image Source="chatbot.png" HeightRequest="50" />
+                        <Label Text="ChatBot" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
                     </VerticalStackLayout>
                 </Frame>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame CornerRadius="5" HeightRequest="200" WidthRequest="180"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+            <HorizontalStackLayout Margin="0, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedEmergency" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" >
+                        <Image Source="emergencycall.png" HeightRequest="30" />
+                        <Label Text="Emergency Contact" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame WidthRequest="160" HeightRequest="200" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedPeopleOfInterest" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center">
-                        <Image Source="{Binding Icon}" HeightRequest="50" />
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Image Source="confusion.png" HeightRequest="45" />
+                        <Label Text="People of Interest" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" Padding="20" />
                     </VerticalStackLayout>
                 </Frame>
             </HorizontalStackLayout>

@@ -4,6 +4,8 @@ namespace CommunityConnect.Pages;
 
 public partial class signin : ContentPage
 {
+    private bool _isPasswordVisible = false;
+
     public signin()
     {
         InitializeComponent();
@@ -34,8 +36,9 @@ public partial class signin : ContentPage
     }
 
     // Toggle Password Visibility
-    private void OnShowPasswordToggled(object sender, CheckedChangedEventArgs e)
+    private void OnPasswordVisibilityTapped(object sender, TappedEventArgs e)
     {
-        PasswordEntry.IsPassword = !e.Value; // Toggle password visibility
+        _isPasswordVisible = !_isPasswordVisible;
+        PasswordEntry.IsPassword = !_isPasswordVisible;
     }
 }
