@@ -318,38 +318,40 @@
                 FontSize="30"
                 HorizontalOptions="Center" />
                 <!-- logout frame -->
-                <Frame
-                HeightRequest="75"
-                WidthRequest="350"
-                CornerRadius="10"
-                Padding="0"
-                 BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
-                     
-                    <HorizontalStackLayout>
-                        <Image
-                        Source="logout.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="Logout"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="170"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
-                    </HorizontalStackLayout>
-                </Frame>
-            </VerticalStackLayout>
+            <Frame
+    HeightRequest="75"
+    WidthRequest="350"
+    CornerRadius="10"
+    Padding="0"
+    BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLogoutTapped" />
+                </Frame.GestureRecognizers>
+                <HorizontalStackLayout>
+                    <Image
+            Source="logout.png"
+            Margin="20"
+            Aspect="AspectFit"
+            HeightRequest="30"
+            WidthRequest="30"
+            HorizontalOptions="StartAndExpand" />
+                    <Label 
+            Text="Logout"
+            TextColor="Black"
+            FontAttributes="Bold"
+            FontSize="15"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+                    <Image
+            Source="right_arrow.png"
+            Margin="170"
+            Aspect="AspectFit"
+            HeightRequest="20"
+            WidthRequest="20"
+            HorizontalOptions="EndAndExpand"/>
+                </HorizontalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
         </ScrollView>
 
     </ContentPage>
