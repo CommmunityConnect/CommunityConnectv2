@@ -65,18 +65,32 @@
                         <TapGestureRecognizer Tapped="OnTappedEmergency" />
                     </Frame.GestureRecognizers>
                     <VerticalStackLayout VerticalOptions="Center" >
-                        <Image Source="emergencycall.png" HeightRequest="30" />
+                        <Image Source="phone.png" HeightRequest="30" />
                         <Label Text="Emergency Contact" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
                     </VerticalStackLayout>
                 </Frame>
+                
+                
 
                 <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedPeopleOfInterest" />
                     </Frame.GestureRecognizers>
                     <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="confusion.png" HeightRequest="45" />
+                        <Image Source="question.png" HeightRequest="45" />
                         <Label Text="People of Interest" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" Padding="20" />
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedIncidentFeed" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Image Source="satelliteview.png" HeightRequest="45" />
+                        <Label Text="Incident Feed" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" Padding="20" />
                     </VerticalStackLayout>
                 </Frame>
             </HorizontalStackLayout>

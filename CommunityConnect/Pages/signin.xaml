@@ -28,7 +28,7 @@
                     Padding="10">
                 <Grid ColumnDefinitions="Auto,*">
                     <Image Grid.Column="0" 
-                           Source="user.png" 
+                           Source="id.png" 
                            WidthRequest="25" 
                            HeightRequest="25" 
                            Margin="0,0,10,0"/>
@@ -44,8 +44,8 @@
                     Background="Transparent" 
                     Padding="10">
                 <Grid ColumnDefinitions="Auto,*,Auto">
-                    <Image Grid.Column="0" 
-                           Source="passwordicon.png" 
+                    <Image Grid.Column="0"
+                           Source="padlock.png" 
                            WidthRequest="25" 
                            HeightRequest="25" 
                            Margin="0,0,10,0"/>
@@ -54,16 +54,28 @@
                            Placeholder="Password" 
                            IsPassword="True"
                            MaxLength="50" />
-                  
+                    <Image Grid.Column="2" 
+                           Source="eye.png" 
+                           WidthRequest="25" 
+                           HeightRequest="25">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPasswordVisibilityTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
                 </Grid>
             </Border>
 
+            
+           
             <Button Text="Sign In" 
                     TextColor="Black"
                     BackgroundColor="#4e7c9e"
                     Clicked="BtnSignInClicked" 
                     HorizontalOptions="Center" 
                     WidthRequest="200" />
+
+            
 
             <Label>
                 <Label.FormattedText>

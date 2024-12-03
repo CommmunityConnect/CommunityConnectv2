@@ -63,5 +63,10 @@ namespace CommunityConnect
         {
             await Navigation.PushAsync(new PeopleOfInterest());
         }
+
+        private async void OnTappedMap(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new IncidentFeed());
+        }
     }
 }

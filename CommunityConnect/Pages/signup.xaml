@@ -7,7 +7,6 @@
              Shell.NavBarIsVisible="false"
              Shell.TabBarIsVisible="False">
 
-
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,1">
             <GradientStop Color="#4e7c9e" Offset="0.1" />
@@ -16,72 +15,74 @@
     </ContentPage.Background>
 
     <VerticalStackLayout>
-            <!-- Image of the communityConnect logo-->
-
+        <!-- Logo -->
         <Image Source="transparentcommunityconnectlogo.png"
                HeightRequest="150"
-        />  
+               HorizontalOptions="Center" />
 
+        <!-- Page Title -->
         <Label 
             Text="Create new"
             VerticalOptions="Center" 
-            TextColor="#4e7c9e" 
+            TextColor="White" 
             FontAttributes="Bold"
             FontSize="30"
             Margin="0,20,0,0"
-            HorizontalOptions="Center" 
-            />
+            HorizontalOptions="Center" />
 
-            <Label 
+        <Label 
              Text="Account"
              VerticalOptions="Center" 
              FontAttributes="Bold"
-             TextColor="#4e7c9e"
+             TextColor="White"
              FontSize="30"
              HorizontalOptions="Center" />
 
-            <Label 
-             Text="Already Registered ? Log in here."
+        <!-- Navigation to Login -->
+        <Label 
+             Text="Already Registered? Log in here."
              VerticalOptions="Center" 
              TextColor="Black"
              FontAttributes="Bold"
              FontSize="20"
              HorizontalOptions="Center"
-                Margin="0,20,0,0"/>
+             Margin="0,20,0,0">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTappedNavigateToLogin" />
+            </Label.GestureRecognizers>
+        </Label>
 
-            <Label 
+        <!-- Name Input -->
+        <Label 
             Margin="40,20,0,0"
-             Text="NAME"
-             VerticalOptions="Center" 
-                
-             TextColor="#227B94"
+            Text="Username"
+            VerticalOptions="Center" 
+            TextColor="Black"
             FontAttributes="Bold"/>
 
         <Frame 
-          Margin="40,0,50,0" 
-          CornerRadius="10"
-          Padding="10,10,10,10"
-          BackgroundColor="#F3EEE4">    
+            Margin="40,0,50,0" 
+            CornerRadius="10"
+            Padding="10,10,10,10"
+            BackgroundColor="Transparent">
             <Grid Padding="0">
-                <!-- Define the column definitions to arrange items -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Email icon -->
                 <Image
-                 Source="nameicon.png" 
+                 Source="id.png" 
                  WidthRequest="24"
                  HeightRequest="24"
                  VerticalOptions="Center"
                  HorizontalOptions="Start"
                  Grid.Column="0"/>
 
-                <!-- Email entry field -->
                 <Entry
+                  x:Name="nameEntry"
                   Margin="20,0,0,0"
-                  Placeholder="Enter your full name"
+                  Placeholder="Username"
                   Keyboard="Text"
                   VerticalOptions="Center"
                   HorizontalOptions="FillAndExpand"
@@ -89,36 +90,35 @@
             </Grid>
         </Frame>
 
+        <!-- Email Input -->
         <Label 
             Margin="40,20,0,0"
             Text="Email"
             VerticalOptions="Center" 
-            TextColor="#227B94"
+            TextColor="Black"
             FontAttributes="Bold"/>
 
         <Frame 
-              Margin="40,0,50,0" 
-              CornerRadius="10"
-              Padding="10,10,10,10"
-              BackgroundColor="#F3EEE4">
+            Margin="40,0,50,0" 
+            CornerRadius="10"
+            Padding="10,10,10,10"
+            BackgroundColor="Transparent">
             <Grid Padding="0">
-                <!-- Define the column definitions to arrange items -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Email icon -->
                 <Image
-                 Source="emailicon.png" 
+                 Source="email.png" 
                  WidthRequest="24"
                  HeightRequest="24"
                  VerticalOptions="Center"
                  HorizontalOptions="Start"
                  Grid.Column="0"/>
 
-                <!-- Email entry field -->
                 <Entry
+                  x:Name="emailEntry"
                   Margin="20,0,0,0"
                   Placeholder="Enter your email"
                   Keyboard="Email"
@@ -128,61 +128,61 @@
             </Grid>
         </Frame>
 
+        <!-- Password Input -->
         <Label 
              Margin="40,20,0,0"
              Text="Password"
              VerticalOptions="Center" 
-             TextColor="#227B94"
+             TextColor="Black"
              FontAttributes="Bold"/>
 
         <Frame 
             Margin="40,0,50,0" 
             CornerRadius="10"
             Padding="10,10,10,10"
-            BackgroundColor="#F3EEE4">
+            BackgroundColor="Transparent">
             <Grid Padding="0">
-                <!-- Define the column definitions to arrange items -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Email icon -->
                 <Image
-                Source="passwordicon.png" 
+                Source="padlock.png" 
                 WidthRequest="24"
                 HeightRequest="24"
                 VerticalOptions="Center"
                 HorizontalOptions="Start"
                 Grid.Column="0"/>
 
-                <!-- Email entry field -->
                 <Entry
+                x:Name="passwordEntry"
                 Margin="20,0,0,0"
                 Placeholder="Enter your password"
-                Keyboard="Email"
+                IsPassword="True"
                 VerticalOptions="Center"
                 HorizontalOptions="FillAndExpand"
-                Grid.Column="1"
-                x:Name="password"/>
+                Grid.Column="1"/>
             </Grid>
         </Frame>
 
+        <!-- Show Password -->
         <HorizontalStackLayout>
-                <CheckBox
-                  Margin="200,0,0,0"
-                  Color="#227B94"/>
+            <CheckBox
+              Margin="200,0,0,0"
+              Color="#227B94"
+              CheckedChanged="OnShowPasswordCheckedChanged" />
 
-                <Label 
-                   Margin="0,0,0,0"
-                   Text="Show Password"
-                   VerticalOptions="Center" 
-                   TextColor="red"
-                   FontAttributes="Bold"/>
-            </HorizontalStackLayout>
+            <Label 
+               Margin="0,0,0,0"
+               Text="Show Password"
+               VerticalOptions="Center" 
+               TextColor="Black"
+               FontAttributes="Bold"/>
+        </HorizontalStackLayout>
 
-
-            <Button
+        <!-- Sign Up Button -->
+        <Button
              Margin="20,70,30,0"
              Padding="50,10,50,10"
              CornerRadius="15"
@@ -191,17 +191,17 @@
              Text="Sign up" 
              FontSize="18"
              FontAttributes="Bold"
-             HorizontalOptions="Center"/>
+             HorizontalOptions="Center"
+             Clicked="OnSignUpClicked" />
 
-            <Label 
+        <!-- Terms -->
+        <Label 
              Margin="0,10,0,0"
              Text="Terms and Conditions Apply"
              VerticalOptions="Center" 
              TextColor="#227B94"
              FontAttributes="Bold"
-            HorizontalOptions="Center"/>
+             HorizontalOptions="Center"/>
+    </VerticalStackLayout>
 
-
-        </VerticalStackLayout> 
-    
 </ContentPage>
