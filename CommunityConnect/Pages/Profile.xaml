@@ -319,11 +319,11 @@
                 HorizontalOptions="Center" />
                 <!-- logout frame -->
             <Frame
-    HeightRequest="75"
-    WidthRequest="350"
-    CornerRadius="10"
-    Padding="0"
-    BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
+               HeightRequest="75"
+               WidthRequest="350"
+               CornerRadius="10"
+               Padding="0"
+               BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnLogoutTapped" />
                 </Frame.GestureRecognizers>

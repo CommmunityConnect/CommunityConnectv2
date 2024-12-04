@@ -18,78 +18,91 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
+    <Grid>
+        <!-- Define rows for layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Logo -->
+            <RowDefinition Height="*" />
+            <!-- CarouselView -->
+            <RowDefinition Height="Auto" />
+            <!-- Words (Text) -->
+            <RowDefinition Height="Auto" />
+            <!-- Button -->
+        </Grid.RowDefinitions>
 
-    <VerticalStackLayout >
-        
-        
+        <!-- Logo at the top -->
+        <StackLayout Grid.Row="0" Spacing="20" Padding="20" HorizontalOptions="Center">
+            <Image Source="transparentcommunityconnectlogo.png"
+                   HeightRequest="150"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
 
-        <!-- Grid to hold CarouselView, Text, and IndicatorView -->
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <!-- CarouselView for the slideshow -->
+        <CarouselView x:Name="slideshow"
+                      Grid.Row="1"
+                      IndicatorView="{x:Reference indicatorView}"
+                      HeightRequest="300"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="CenterAndExpand">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>preview.png</x:String>
+                    <x:String>staysafe.png</x:String>
+                    <x:String>friends.png</x:String>
+                    <x:String>young.png</x:String>
+                    <x:String>tech.png</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Image Source="{Binding}" 
+                               Aspect="AspectFit" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center" />
+                    </ContentView>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
 
-            <!-- CarouselView for the slideshow -->
-            <CarouselView x:Name="slideshow" HeightRequest="200"
-                          Grid.Row="0"
-                          IndicatorView="{x:Reference indicatorView}">
-                <CarouselView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>preview.png</x:String>
-                        <!-- Replace with your image paths -->
-                        <x:String>staysafe.png</x:String>
-                        <x:String>friends.png</x:String>
-                        <x:String>young.png</x:String>
-                        <x:String>tech.png</x:String>
-                    </x:Array>
-                </CarouselView.ItemsSource>
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <ContentView>
-                            <Image Source="{Binding}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200" />
-                        </ContentView>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+        <!-- IndicatorView for the dots -->
+        <IndicatorView x:Name="indicatorView"
+                       Grid.Row="1"
+                       Margin="0,10,0,0"
+                       IndicatorsShape="Circle"
+                       IndicatorColor="#4e7c9e"
+                       SelectedIndicatorColor="Black"
+                       HorizontalOptions="Center"
+                       VerticalOptions="End"
+                       IndicatorSize="10"/>
 
-            <!-- Label for displaying text -->
-            <Label x:Name="textLabel"
-                   Grid.Row="1"
-                   Margin="40,150,20,0"
-                   HorizontalOptions="Center"
-                   HorizontalTextAlignment="Center"
-                   VerticalOptions="Center"
-                   VerticalTextAlignment="Center"
-                   TextColor="#fff"
-                   FontAttributes="Bold"
-                   FontSize="16"
-                   Padding="10"
-                   Text="{Binding Source={x:Reference slideshow}, Path=CurrentItem.Text}"/>
+        <!-- Words (Text) Section -->
+        <Label x:Name="textLabel"
+               Grid.Row="2"
+               Margin="20,10,20,10"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               TextColor="#fff"
+               FontAttributes="Bold"
+               FontSize="16"
+               Text="Welcome to CommunityConnect! Explore and stay connected."
+               HorizontalTextAlignment="Center" />
 
-            <!-- IndicatorView for the dots -->
-            <IndicatorView x:Name="indicatorView"
-                           Grid.Row="2"
-                           Margin="0,150,0,0"
-                           IndicatorsShape="Circle"
-                           IndicatorColor="#4e7c9e"
-                           SelectedIndicatorColor="Black"
-                           HorizontalOptions="Center"
-                           VerticalOptions="End"
-                           IndicatorSize="10"/>
-        </Grid>
-
-        <!-- make the get started button to stop moving-->
-        <AbsoluteLayout>
-            <Button Text="Get Started"
-                    BackgroundColor="#4e7c9e"
-                    HeightRequest="50"
-                    WidthRequest="200"
-                    FontAttributes="Bold"
-                    Margin="100,200,50,0"
-                    Clicked="OnGetStartedButtonClicked"/>
-        </AbsoluteLayout>
-        
-    </VerticalStackLayout>
+        <!-- Button for Get Started -->
+        <Button Text="Get Started"
+                BackgroundColor="#4e7c9e"
+                Grid.Row="3"
+                HeightRequest="50"
+                WidthRequest="200"
+                FontAttributes="Bold"
+                CornerRadius="25"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,20,0,20"
+                Clicked="OnGetStartedButtonClicked"/>
+    </Grid>
 </ContentPage>
+
+
+

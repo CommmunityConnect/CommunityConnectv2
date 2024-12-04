@@ -12,18 +12,17 @@ namespace CommunityConnect
             RegisterRoute();
         }
         private readonly static Type[] _types =
-            [
-                typeof(IncidentReportPage),
-            ];
+        [
+            typeof(IncidentReportPage),
+            typeof(signin),
+            typeof(signup)
+        ];
         private static void RegisterRoute()
         {
             foreach (var type in _types)
             {
                 //register routes
                 Routing.RegisterRoute(type.Name, type);
-                Routing.RegisterRoute("signin", typeof(signin));
-                Routing.RegisterRoute("signup", typeof(signup));
-
             }
         }
     }
