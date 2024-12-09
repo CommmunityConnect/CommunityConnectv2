@@ -35,7 +35,7 @@
          HorizontalOptions="StartAndExpand" />
                 <Label 
          Text="Change Password"
-         TextColor="Black"
+         TextColor="White"
          FontAttributes="Bold"
          FontSize="15"
          VerticalOptions="Center" 
@@ -67,7 +67,7 @@
          HorizontalOptions="StartAndExpand" />
                 <Label 
          Text="Delete Account"
-         TextColor="Black"
+         TextColor="White"
          FontAttributes="Bold"
          FontSize="15"
          VerticalOptions="Center" 
@@ -99,7 +99,7 @@
          HorizontalOptions="StartAndExpand" />
                 <Label 
          Text="Notification Settings"
-         TextColor="Black"
+         TextColor="White"
          FontAttributes="Bold"
          FontSize="15"
          VerticalOptions="Center" 

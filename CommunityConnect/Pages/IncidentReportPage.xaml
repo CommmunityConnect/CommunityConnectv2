@@ -5,6 +5,12 @@
              x:Class="CommunityConnect.Pages.IncidentReportPage"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="True">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <!-- Bind the page's BindingContext to the ViewModel -->
     <ContentPage.BindingContext>
@@ -12,18 +18,19 @@
     </ContentPage.BindingContext>
 
     <StackLayout Padding="20">
-        <Label Text="Report Incident" FontSize="24" HorizontalOptions="Center" />
-        <Label Text="Incident Description" Margin="0,15"/>
+        <Label Text="Report Incident" TextColor="white" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="Incident Description" Margin="0,15" TextColor="White"/>
 
         <Entry Placeholder="Describe the incident..." Text="{Binding Description}" />
-        <Label Text="Incident Type" Margin="0,15"/>
+        <Label Text="Incident Type" Margin="0,15"  />
         <Picker Title="Select Incident Type" ItemsSource="{Binding IncidentTypes}" SelectedItem="{Binding IncidentType}" />
         <Label Text="Location" Margin="0,15"/>
-        <Entry Placeholder="Location of the incident..." Text="{Binding Location}" />
-        <Frame HeightRequest="200" WidthRequest="150">
+        <Entry Placeholder="Location of the incident..." TextColor="WhiteSmoke" Text="{Binding Location}" />
+        <Frame HeightRequest="200" WidthRequest="300" BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" Margin="20">
             <Image Source="{Binding Photo}" HeightRequest="180" WidthRequest="150"/>
         </Frame>
-        <Button Text="Upload Photo" Command="{Binding UploadPhotoCommand}" />
-        <Button Text="Submit Report" Command="{Binding SubmitReportCommand}" BackgroundColor="DarkBlue" TextColor="White" Margin="0,20,0,0"/>
+        <Button Text="Upload Photo" Margin="20" Command="{Binding UploadPhotoCommand}" WidthRequest="250" HeightRequest="50" TextColor="White" BackgroundColor="#4e7c9e" />
+        <Button Text="Submit Report" Command="{Binding SubmitReportCommand}" BackgroundColor="#4e7c9e"
+                BorderColor="#4e7c9e" TextColor="White" Margin="0,20,0,0" WidthRequest="250" HeightRequest="50"/>
     </StackLayout>
 </ContentPage>

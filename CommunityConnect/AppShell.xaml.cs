@@ -14,6 +14,8 @@ namespace CommunityConnect
         private readonly static Type[] _types =
         [
             typeof(IncidentReportPage),
+            typeof(AlertsPage),
+            typeof(WantedPersons),
             typeof(signin),
             typeof(signup)
         ];

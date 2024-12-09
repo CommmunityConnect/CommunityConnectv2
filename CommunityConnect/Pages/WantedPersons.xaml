@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommunityConnect.Pages.WantedPersons"
+             Title="WantedPersons">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="Wanted Persons" FontSize="Large" HorizontalOptions="Center" />
+            <SearchBar Placeholder="Search" />
+            <!-- Individual entries for each wanted person -->
+            <Frame BorderColor="#4e7c9e" CornerRadius="10" BackgroundColor="#4e7c9e" Padding="10" Margin="10">
+                <StackLayout>
+                    <Label Text="FULL NAMES" FontAttributes="Bold" FontSize="Medium" />
+                    <Image Source="placeholder.png" HeightRequest="40" WidthRequest="40"  Aspect="AspectFill" />
+                    <StackLayout Orientation="Horizontal">
+
+                        <Label Text="Description:" VerticalOptions="Center" />
+                    </StackLayout>
+                    <Label Text="Details: "/>
+                    <Label Text="Reward: Yes" IsVisible="{Binding WantedPersons[0].Reward}" />
+                </StackLayout>
+            </Frame>
+            <Frame BorderColor="#4e7c9e" BackgroundColor="#4e7c9e" CornerRadius="10" Padding="10" Margin="10">
+                <StackLayout>
+                    <Label Text="{Binding WantedPersons[1].FullName}" FontAttributes="Bold" FontSize="Medium" />
+                    <Image Source="placeholder.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFill" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding WantedPersons[1].Description}" VerticalOptions="Center" WidthRequest="200" />
+                        <Label Text="{Binding WantedPersons[1].Details}" VerticalOptions="Center" />
+                    </StackLayout>
+                    <Label Text="Reward: Yes" IsVisible="{Binding WantedPersons[1].Reward}" />
+                </StackLayout>
+            </Frame>
+            <!-- Add more entries as needed -->
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
