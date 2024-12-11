@@ -4,10 +4,105 @@
              x:Class="CommunityConnect.Pages.PeopleOfInterest"
              Shell.NavBarIsVisible="True"
              Title="PeopleOfInterest">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+    
+
+        <!-- Main Stack Layout -->
+        <StackLayout Padding="10" Spacing="15">
+            <!-- Title Label -->
+            <Label Text="Community Forum"
+               FontSize="Large"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="White" />
+
+            <!-- Search Bar -->
+            <SearchBar Placeholder="Search"
+                   FontSize="Medium"
+                   BackgroundColor="#FFFFFF"
+                   Margin="10,0,10,15"
+                   HeightRequest="40"
+                   PlaceholderColor="#9E9E9E"
+                   TextColor="#000000" />
+
+            <!-- Forum Categories -->
+            <StackLayout Spacing="15">
+                <!-- General Discussions -->
+                <Frame CornerRadius="15"
+                   BackgroundColor="#4A6975"
+                   HeightRequest="50"
+                   HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="General Discussions"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="White" />
+                        <Image Source="right_arrow_icon.png" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           WidthRequest="20" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Announcements -->
+                <Frame CornerRadius="15"
+                   BackgroundColor="#4A6975"
+                   HeightRequest="50"
+                   HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="Announcements"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="White" />
+                        <Image Source="right_arrow_icon.png" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           WidthRequest="20" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Missing Persons -->
+                <Frame CornerRadius="15"
+                   BackgroundColor="#4A6975"
+                   HeightRequest="50"
+                   HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="Missing Persons"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="White" />
+                        <Image Source="right_arrow_icon.png" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           WidthRequest="20" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Wanted Persons -->
+                <Frame CornerRadius="15"
+                   BackgroundColor="#4A6975"
+                   HeightRequest="50"
+                   HasShadow="True">
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="Wanted Persons"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="White" />
+                        <Image Source="right_arrow_icon.png" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           WidthRequest="20" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+
+ 

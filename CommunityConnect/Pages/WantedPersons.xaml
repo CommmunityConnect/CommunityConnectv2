@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.WantedPersons"
-             Title="WantedPersons">
+             Title="WantedPersons"
+             Shell.NavBarIsVisible="True">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,1">
             <GradientStop Color="#4e7c9e" Offset="0.1" />
@@ -16,9 +17,9 @@
             <SearchBar Placeholder="Search" />
             <!-- Individual entries for each wanted person -->
             <Frame BorderColor="#4e7c9e" CornerRadius="10" BackgroundColor="#4e7c9e" Padding="10" Margin="10">
-                <StackLayout>
+                <StackLayout Margin="10,10,10,10" Padding="10">
                     <Label Text="FULL NAMES" FontAttributes="Bold" FontSize="Medium" />
-                    <Image Source="placeholder.png" HeightRequest="40" WidthRequest="40"  Aspect="AspectFill" />
+                    <Image Margin="10,0,260,0" Source="profilepic.png" HeightRequest="80" WidthRequest="80"  Aspect="AspectFill" />
                     <StackLayout Orientation="Horizontal">
 
                         <Label Text="Description:" VerticalOptions="Center" />
@@ -38,7 +39,7 @@
                     <Label Text="Reward: Yes" IsVisible="{Binding WantedPersons[1].Reward}" />
                 </StackLayout>
             </Frame>
-            <!-- Add more entries as needed -->
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

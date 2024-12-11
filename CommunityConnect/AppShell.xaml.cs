@@ -16,6 +16,9 @@ namespace CommunityConnect
             typeof(IncidentReportPage),
             typeof(AlertsPage),
             typeof(WantedPersons),
+            typeof(MissingPersons),
+            typeof(Announcements),
+            typeof(GeneralDiscussions),
             typeof(signin),
             typeof(signup)
         ];
