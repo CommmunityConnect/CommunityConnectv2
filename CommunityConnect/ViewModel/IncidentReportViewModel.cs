@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
 namespace CommunityConnect.ViewModel
 {
@@ -87,19 +88,29 @@ namespace CommunityConnect.ViewModel
 
         public IncidentReportViewModel()
         {
-            SubmitReportCommand = new Command(SubmitReport);
-            UploadPhotoCommand = new Command(UploadPhoto);
+            SubmitReportCommand = new Command(OnSubmitReport);
+            UploadPhotoCommand = new Command(OnUploadPhoto);
         }
 
-        private async void SubmitReport()
+        private async void OnSubmitReport()
         {
-            // Placeholder logic for submitting the report
+            if (string.IsNullOrWhiteSpace(Description) ||
+                string.IsNullOrWhiteSpace(IncidentType) ||
+                string.IsNullOrWhiteSpace(Location) ||
+                Photo == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please fill all fields before submitting.", "OK");
+                return;
+            }
+
+            // Logic to submit the report
             await Application.Current.MainPage.DisplayAlert("Success", "Report submitted successfully!", "OK");
+            await Shell.Current.GoToAsync("MainPage");
+            //await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
 
-        private async void UploadPhoto()
+        private async void OnUploadPhoto()
         {
-            // Placeholder logic for uploading a photo
             var result = await FilePicker.PickAsync(new PickOptions
             {
                 FileTypes = FilePickerFileType.Images,
@@ -120,3 +131,4 @@ namespace CommunityConnect.ViewModel
         }
     }
 }
+
