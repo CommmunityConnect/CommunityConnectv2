@@ -20,7 +20,8 @@ namespace CommunityConnect
             typeof(Announcements),
             typeof(GeneralDiscussions),
             typeof(signin),
-            typeof(signup)
+            typeof(signup),
+            typeof(MainPage),
         ];
         private static void RegisterRoute()
         {
