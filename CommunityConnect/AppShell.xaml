@@ -15,10 +15,7 @@
                       ContentTemplate="{DataTemplate Pages:LandingPage}"
                       Icon="home_icon.png"
                       Route="Home" />
-        <ShellContent Title="Settings"
-                      ContentTemplate="{DataTemplate Pages:SettingsPage}"
-                      Icon="setting.png"
-                      Route="Settings" />
+        
         <ShellContent Title="Alerts"
                       ContentTemplate="{DataTemplate Pages:AlertsPage}"
                       Icon="alert.png"

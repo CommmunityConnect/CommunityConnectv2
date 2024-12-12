@@ -13,8 +13,11 @@
     <!-- This page should hold the main page with the menus-->
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="10">
-            <Label Text="CommunityConnect Menu" FontSize="25" Style="{StaticResource Heading1}" HorizontalOptions="Center" />
-
+            
+             
+            <Frame BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="300" >
+                <Image Source="transparentcommunityconnectlogo.png"/>
+            </Frame>
             <HorizontalStackLayout Margin="0, 1, 0, 10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Frame CornerRadius="5"  HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
@@ -37,8 +40,8 @@
                 </Frame>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Margin="0, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+            <HorizontalStackLayout Margin="160, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" Margin="-160,0,0,0" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedForum" />
                     </Frame.GestureRecognizers>
@@ -48,13 +51,13 @@
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150" Margin="10"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnTappedChatBot" />
+                        <TapGestureRecognizer Tapped="OnTappedEmergency" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="chatbot.png" HeightRequest="50" />
-                        <Label Text="ChatBot" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout VerticalOptions="Center" >
+                        <Image Source="phone.png" HeightRequest="30" />
+                        <Label Text="Emergency Contact" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
                     </VerticalStackLayout>
                 </Frame>
             </HorizontalStackLayout>
@@ -72,7 +75,7 @@
                 
                 
 
-                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedPeopleOfInterest" />
                     </Frame.GestureRecognizers>
@@ -83,17 +86,7 @@
                 </Frame>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout>
-                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="20" BackgroundColor="#4e7c9e" BorderColor="Transparent">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnTappedIncidentFeed" />
-                    </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="satelliteview.png" HeightRequest="45" />
-                        <Label Text="Incident Feed" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" Padding="20" />
-                    </VerticalStackLayout>
-                </Frame>
-            </HorizontalStackLayout>
+             
         </VerticalStackLayout>
     </ScrollView>
 

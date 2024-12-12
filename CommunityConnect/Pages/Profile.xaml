@@ -54,39 +54,8 @@
                 FontAttributes="Bold"
                 FontSize="25"
                 HorizontalOptions="Center"/>
-                <!-- acount details frame -->
-            <Frame
-                HeightRequest="75"
-                WidthRequest="350"
-                CornerRadius="10"
-                Padding="0"
-                BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" >
+                
             
-                    <HorizontalStackLayout>
-                        <Image
-                        Source="profilepic.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="Account Details"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="100"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
-                    </HorizontalStackLayout>
-
-                </Frame>
                 <!-- change password frame -->
                 <Frame
                 HeightRequest="75"
@@ -184,38 +153,8 @@
                         HorizontalOptions="EndAndExpand"/>
                     </HorizontalStackLayout>
                 </Frame>
-                <!-- notification settings frame -->
-                <Frame
-                HeightRequest="75"
-                WidthRequest="350"
-                CornerRadius="10"
-                Padding="0"
-                 BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" >
-                     
-                    <HorizontalStackLayout>
-                        <Image
-                        Source="notification.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="Notification Settings"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="70"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
-                    </HorizontalStackLayout>
-                </Frame>
+                
+                
                 <!-- rate app frame -->
                 <Frame
                 HeightRequest="75"
@@ -248,37 +187,8 @@
                         HorizontalOptions="EndAndExpand"/>
                     </HorizontalStackLayout>
                 </Frame>
-                <!-- terms and conditions frame -->
-                <Frame
-                HeightRequest="75"
-                WidthRequest="350"
-                CornerRadius="10"
-                Padding="0"
-                 BackgroundColor="#4e7c9e" BorderColor="#4e7c9e"> 
-                    <HorizontalStackLayout>
-                        <Image
-                        Source="terms_and_conditions.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="Ts and Cs"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="150"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
-                    </HorizontalStackLayout>
-                </Frame>
+               
+                
                 <!-- about app frame -->
                 <Frame
                 HeightRequest="75"
