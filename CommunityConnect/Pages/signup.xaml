@@ -181,6 +181,20 @@
                FontAttributes="Bold"/>
         </HorizontalStackLayout>
 
+        <!-- User Type Selection -->
+        <Label 
+            Margin="40,20,0,0"
+            Text="Sign up as"
+            VerticalOptions="Center" 
+            TextColor="Black"
+            FontAttributes="Bold"/>
+
+        <Picker
+            x:Name="userTypePicker"
+            Margin="40,0,50,0"
+            ItemsSource="{Binding UserTypes}"
+            SelectedIndex="0" />
+
         <!-- Sign Up Button -->
         <Button
              Margin="20,70,30,0"
@@ -205,3 +219,4 @@
     </VerticalStackLayout>
 
 </ContentPage>
+
