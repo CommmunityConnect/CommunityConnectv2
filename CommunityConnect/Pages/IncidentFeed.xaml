@@ -4,9 +4,15 @@
              x:Class="CommunityConnect.Pages.IncidentFeed"
              Shell.NavBarIsVisible="True"
              Title="IncidentFeed">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Incident Feed"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

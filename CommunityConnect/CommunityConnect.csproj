@@ -72,6 +72,7 @@
 	  <None Remove="Resources\Images\nameicon.png" />
 	  <None Remove="Resources\Images\notification.png" />
 	  <None Remove="Resources\Images\passwordicon.png" />
+	  <None Remove="Resources\Images\phonecall.png" />
 	  <None Remove="Resources\Images\profilepic.png" />
 	  <None Remove="Resources\Images\rate_app.png" />
 	  <None Remove="Resources\Images\reset_password.png" />

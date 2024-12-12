@@ -167,7 +167,7 @@
                         Aspect="AspectFit"
                         HeightRequest="30"
                         WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
+                        HorizontalOptions="CenterAndExpand" />
                         <Label 
                         Text="Help"
                         TextColor="Black"

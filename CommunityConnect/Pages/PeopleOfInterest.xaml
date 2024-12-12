@@ -4,21 +4,21 @@
              x:Class="CommunityConnect.Pages.PeopleOfInterest"
              Shell.NavBarIsVisible="True"
              Title="PeopleOfInterest">
-    
 
-        <!-- Main Stack Layout -->
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <!-- Main Stack Layout -->
         <StackLayout Padding="10" Spacing="15">
-            <!-- Title Label -->
-            <Label Text="Community Forum"
-               FontSize="Large"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               TextColor="White" />
+            
 
             <!-- Search Bar -->
             <SearchBar Placeholder="Search"
                    FontSize="Medium"
-                   BackgroundColor="#FFFFFF"
+                   BackgroundColor="Transparent"
                    Margin="10,0,10,15"
                    HeightRequest="40"
                    PlaceholderColor="#9E9E9E"
@@ -26,57 +26,21 @@
 
             <!-- Forum Categories -->
             <StackLayout Spacing="15">
-                <!-- General Discussions -->
+               
+              <!-- Missing Persons -->
                 <Frame CornerRadius="15"
-                   BackgroundColor="#4A6975"
-                   HeightRequest="50"
+                   BackgroundColor="#4e7c9e"
+                       BorderColor="#4e7c9e"
+                   HeightRequest="80"
                    HasShadow="True">
                     <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="General Discussions"
+                    <Label x:Name="MissingPersonsFrame" Text="Missing Persons"
                            FontSize="Medium"
                            FontAttributes="Bold"
                            HorizontalOptions="StartAndExpand"
                            VerticalOptions="Center"
                            TextColor="White" />
-                        <Image Source="right_arrow_icon.png" 
-                           HorizontalOptions="End"
-                           VerticalOptions="Center"
-                           WidthRequest="20" />
-                    </StackLayout>
-                </Frame>
-
-                <!-- Announcements -->
-                <Frame CornerRadius="15"
-                   BackgroundColor="#4A6975"
-                   HeightRequest="50"
-                   HasShadow="True">
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="Announcements"
-                           FontSize="Medium"
-                           FontAttributes="Bold"
-                           HorizontalOptions="StartAndExpand"
-                           VerticalOptions="Center"
-                           TextColor="White" />
-                        <Image Source="right_arrow_icon.png" 
-                           HorizontalOptions="End"
-                           VerticalOptions="Center"
-                           WidthRequest="20" />
-                    </StackLayout>
-                </Frame>
-
-                <!-- Missing Persons -->
-                <Frame CornerRadius="15"
-                   BackgroundColor="#4A6975"
-                   HeightRequest="50"
-                   HasShadow="True">
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="Missing Persons"
-                           FontSize="Medium"
-                           FontAttributes="Bold"
-                           HorizontalOptions="StartAndExpand"
-                           VerticalOptions="Center"
-                           TextColor="White" />
-                        <Image Source="right_arrow_icon.png" 
+                        <Image Source="right_arrow.png" 
                            HorizontalOptions="End"
                            VerticalOptions="Center"
                            WidthRequest="20" />
@@ -85,17 +49,18 @@
 
                 <!-- Wanted Persons -->
                 <Frame CornerRadius="15"
-                   BackgroundColor="#4A6975"
-                   HeightRequest="50"
+                   BackgroundColor="#4e7c9e"
+                       BorderColor="#4e7c9e"
+                   HeightRequest="80"
                    HasShadow="True">
                     <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="Wanted Persons"
+                    <Label x:Name="WantedPersonsFrame" Text="Wanted Persons"
                            FontSize="Medium"
                            FontAttributes="Bold"
                            HorizontalOptions="StartAndExpand"
                            VerticalOptions="Center"
                            TextColor="White" />
-                        <Image Source="right_arrow_icon.png" 
+                        <Image Source="right_arrow.png" 
                            HorizontalOptions="End"
                            VerticalOptions="Center"
                            WidthRequest="20" />
