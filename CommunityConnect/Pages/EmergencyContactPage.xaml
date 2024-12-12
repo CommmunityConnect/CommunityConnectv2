@@ -3,11 +3,90 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.EmergencyContactPage"
              Shell.NavBarIsVisible="True"
-             Title="EmergencyContactPage">
+             Title="EmergencyContactPage"
+             >
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Emergency Contacts"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <SearchBar  Placeholder="Search"
+        FontSize="Medium"
+         
+        Margin="20,0,10,15"
+             PlaceholderColor="#9E9E9E"
+        HeightRequest="40"
+       
+        TextColor="white" />
+
+        <!-- Forum Categories -->
+        <StackLayout Spacing="15">
+            <!-- General Discussions -->
+            <Frame x:Name="PoliceEmergencyNumberFrame"  CornerRadius="15"
+        BackgroundColor="#4e7c9e"
+            BorderColor="#4e7c9e"
+        HeightRequest="80"
+        HasShadow="True">
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label Text="Police Emergency Number : 10111"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="Center"
+                TextColor="White" />
+                    <Image Source="phonecall.png" 
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Announcements -->
+            <Frame x:Name="AmbulanceFrame" CornerRadius="15"
+        BackgroundColor="#4e7c9e"
+            BorderColor="#4e7c9e"
+        HeightRequest="80"
+        HasShadow="True">
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label Text="Ambulance or fire : 10177 "
+                FontSize="Medium"
+                FontAttributes="Bold"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="Center"
+                TextColor="White" />
+                    <Image Source="phonecall.png" 
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Missing Persons -->
+            <Frame x:Name="ChildlineFrame" CornerRadius="15"
+        BackgroundColor="#4e7c9e"
+            BorderColor="#4e7c9e"
+        HeightRequest="80"
+        HasShadow="True">
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label Text="Childline : 0800055555"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="Center"
+                TextColor="White" />
+                    <Image Source="phonecall.png" 
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                WidthRequest="20" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
