@@ -14,7 +14,7 @@ namespace CommunityConnect.Pages
         private void OnTappedNavigateToLogin(object sender, EventArgs e)
         {
             // Navigate to login page
-            Shell.Current.GoToAsync("//LoginPage");
+            Shell.Current.GoToAsync("signin");
         }
 
         private void OnShowPasswordCheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -32,8 +32,9 @@ namespace CommunityConnect.Pages
             // Perform sign-up logic here
 
             await DisplayAlert("Success", $"Signed up as {userType}", "OK");
-            await Shell.Current.GoToAsync("//MainPage");
+            await Shell.Current.GoToAsync("signin");
         }
     }
 }
+
 
