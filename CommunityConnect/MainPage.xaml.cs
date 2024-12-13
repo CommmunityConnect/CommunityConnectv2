@@ -44,12 +44,6 @@ namespace CommunityConnect
             await Navigation.PushAsync(new ForumPage());
         }
 
-        private async void OnTappedChatBot(object sender, TappedEventArgs e)
-        {
-            await Navigation.PushAsync(new ChatBotPage());
-
-        }
-
         private async void OnTappedIncidentFeed(object sender, TappedEventArgs e) 
         {
             await Navigation.PushAsync(new IncidentFeed());
