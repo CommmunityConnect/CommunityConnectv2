@@ -65,11 +65,11 @@
             <HorizontalStackLayout Margin="0, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnTappedEmergency" />
+                        <TapGestureRecognizer Tapped="OnTappedIncidentFeed" />
                     </Frame.GestureRecognizers>
                     <VerticalStackLayout VerticalOptions="Center" >
-                        <Image Source="phone.png" HeightRequest="30" />
-                        <Label Text="Emergency Contact" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
+                        <Image Source="satelliteview.png" HeightRequest="30" />
+                        <Label Text="Incident Feed" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
                     </VerticalStackLayout>
                 </Frame>
                 

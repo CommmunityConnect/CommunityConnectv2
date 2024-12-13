@@ -21,15 +21,7 @@
                HorizontalOptions="Center"
                TextColor="White" />
 
-            <!-- Search Bar -->
-            <SearchBar  Placeholder="Search"
-                   FontSize="Medium"
-                    
-                   Margin="20,0,10,15"
-                        PlaceholderColor="#9E9E9E"
-                   HeightRequest="40"
-                  
-                   TextColor="white" />
+            
 
             <!-- Forum Categories -->
             <StackLayout Spacing="15">

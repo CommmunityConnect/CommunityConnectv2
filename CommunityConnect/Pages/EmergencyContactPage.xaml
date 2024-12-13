@@ -17,14 +17,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <SearchBar  Placeholder="Search"
-        FontSize="Medium"
-         
-        Margin="20,0,10,15"
-             PlaceholderColor="#9E9E9E"
-        HeightRequest="40"
        
-        TextColor="white" />
 
         <!-- Forum Categories -->
         <StackLayout Spacing="15">
@@ -41,10 +34,7 @@
                 HorizontalOptions="StartAndExpand"
                 VerticalOptions="Center"
                 TextColor="White" />
-                    <Image Source="phonecall.png" 
-                HorizontalOptions="End"
-                VerticalOptions="Center"
-                WidthRequest="20" />
+                    
                 </StackLayout>
             </Frame>
 
@@ -61,10 +51,7 @@
                 HorizontalOptions="StartAndExpand"
                 VerticalOptions="Center"
                 TextColor="White" />
-                    <Image Source="phonecall.png" 
-                HorizontalOptions="End"
-                VerticalOptions="Center"
-                WidthRequest="20" />
+                    
                 </StackLayout>
             </Frame>
 
@@ -81,10 +68,7 @@
                 HorizontalOptions="StartAndExpand"
                 VerticalOptions="Center"
                 TextColor="White" />
-                    <Image Source="phonecall.png" 
-                HorizontalOptions="End"
-                VerticalOptions="Center"
-                WidthRequest="20" />
+                     
                 </StackLayout>
             </Frame>
         </StackLayout>
