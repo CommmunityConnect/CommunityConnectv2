@@ -40,7 +40,7 @@
                 </Frame>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Margin="160, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <HorizontalStackLayout Margin="-10, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedForum" />
