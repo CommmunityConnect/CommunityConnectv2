@@ -15,14 +15,7 @@
         <StackLayout Padding="10" Spacing="15">
             
 
-            <!-- Search Bar -->
-            <SearchBar Placeholder="Search"
-                   FontSize="Medium"
-                   BackgroundColor="Transparent"
-                   Margin="10,0,10,15"
-                   HeightRequest="40"
-                   PlaceholderColor="#9E9E9E"
-                   TextColor="#000000" />
+             
 
             <!-- Forum Categories -->
             <StackLayout Spacing="15">
