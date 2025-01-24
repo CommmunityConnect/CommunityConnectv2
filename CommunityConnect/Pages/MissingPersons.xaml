@@ -62,7 +62,7 @@
                                 <Label Text="{Binding Status}" FontSize="14" TextColor="Red" FontAttributes="Italic" />
 
                                 <!-- Contact Button -->
-                                <Button Text="Report Information"
+                                <Button Text="View for more info"
                                     Command="{Binding BindingContext.ReportCommand, Source={x:Reference Name=MainPage}}"
                                     CommandParameter="{Binding .}" />
 

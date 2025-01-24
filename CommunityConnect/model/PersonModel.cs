@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace CommunityConnect.model
+namespace CommunityConnect.Model
 {
-    public partial class PersonModel : ObservableObject
+    public class Person 
     {
-        public string? Photo { get; set; }
-        public string? Name { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
         public int Age { get; set; }
-        public string? Description { get; set; }
-        public string? LastSeenLocation { get; set; }
-        public string? DateLastSeen { get; set; }
-        public string? WantedFor { get; set; }
-        public string? Status { get; set; }
-        public bool IsMissing { get; set; }
-        public bool IsExpanded
-        {
-            get; set;
-        }
+        public string Category { get; set; }
+        public string Status { get; set; }
+        public string Gender { get; set; }
+        public string Ethnicity { get; set; }
+        public string LastLocation { get; set; }
+        public DateTime DateReported { get; set; }
+        public string ContactNumber { get; set; }
+        public string Photo { get; set; }
     }
 }

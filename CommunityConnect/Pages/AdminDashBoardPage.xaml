@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommunityConnect.Pages.AdminDashBoardPage"
+             
+             Title="AdminDashBoardPage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*, 3*" ColumnDefinitions="*">
+            <!-- Header Section -->
+            <StackLayout BackgroundColor="#457b9d" Padding="20" VerticalOptions="Start">
+                <Frame Padding="10" WidthRequest="80" HeightRequest="80" CornerRadius="40" BackgroundColor="White" HorizontalOptions="Center">
+                    <Image Source="profile_placeholder.png" Aspect="AspectFit"/>
+                </Frame>
+                <Label Text="Admin Dashboard" FontSize="Title" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <!-- Buttons Section -->
+            <StackLayout Grid.Row="1" Spacing="20" Padding="20">
+                <!-- Validation Requests Frame -->
+                <Frame BackgroundColor="#1d3557" CornerRadius="10" Padding="20" HasShadow="True" BorderColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToValidationRequestsCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Label Text="Validation Requests" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center" />
+                    
+                </Frame>
+
+                <!-- Manage Users Frame -->
+                <Frame BackgroundColor="#457b9d" CornerRadius="10" Padding="20" HasShadow="True" BorderColor="White">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToManageUsersCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Label Text="Manage Users" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center" />
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

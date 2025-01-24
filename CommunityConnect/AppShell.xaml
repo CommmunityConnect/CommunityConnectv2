@@ -25,6 +25,15 @@
                       Icon="profilepic"
                       Route="Profile" />
     </TabBar>
+    <ShellContent Title="Admin Dashboard"
+                  ContentTemplate="{DataTemplate local:AdminDashboardPage}"/>
+
+        <!-- Routes for Navigation -->
+        <ShellContent Route="ValidationRequestsPage"
+                  ContentTemplate="{DataTemplate local:ValidationRequestsPage}"/>
+        <ShellContent Route="ManageUsersPage"
+                  ContentTemplate="{DataTemplate local:ManageUsersPage}"/>
+     
 
 
 

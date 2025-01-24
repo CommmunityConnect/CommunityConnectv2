@@ -34,13 +34,13 @@ namespace CommunityConnect.ViewModel
             "Name", "Age", "Date Reported"
         };
 
-        public ObservableCollection<PersonModel> Persons { get; } = new ObservableCollection<PersonModel>
+        public ObservableCollection<Person> Persons { get; } = new ObservableCollection<Person>
         {
-            new PersonModel { Name = "John Doe", Age = 25, Photo = "john_doe.png", Description = "Height: 5'10\", scar on forehead", LastSeenLocation = "New York", DateLastSeen = "2025-01-15", Status = "Critical" },
-            new PersonModel { Name = "Jane Smith", Age = 30, Photo = "jane_smith.png", Description = "Height: 5'6\", tattoo on right arm", WantedFor = "Robbery", Status = "High Risk" }
+            new Person { Name = "John Doe", Age = 25, Photo = "john_doe.png", Description = "Height: 5'10\", scar on forehead", LastSeenLocation = "New York", DateLastSeen = "2025-01-15", Status = "Critical" },
+            new Person { Name = "Jane Smith", Age = 30, Photo = "jane_smith.png", Description = "Height: 5'6\", tattoo on right arm", WantedFor = "Robbery", Status = "High Risk" }
         };
 
-        public ObservableCollection<PersonModel> FilteredPersons { get; } = new ObservableCollection<PersonModel>();
+        public ObservableCollection<Person> FilteredPersons { get; } = new ObservableCollection<Person>();
 
         // Constructor
         public MainViewModel()
@@ -95,7 +95,7 @@ namespace CommunityConnect.ViewModel
 
         // Command for the Contact Button
         [RelayCommand]
-        private void Report(PersonModel person)
+        private void Report(Person person)
         {
             // Handle reporting logic here
             // For now, display a simple message

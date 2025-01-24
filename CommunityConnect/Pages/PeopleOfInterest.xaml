@@ -2,65 +2,61 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.PeopleOfInterest"
+             xmlns:viewModels="clr-namespace:CommunityConnect.ViewModel"
              Shell.NavBarIsVisible="True"
              Title="PeopleOfInterest">
-
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,1">
             <GradientStop Color="#4e7c9e" Offset="0.1" />
             <GradientStop Color="#1c2c38" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    <!-- Main Stack Layout -->
-        <StackLayout Padding="10" Spacing="15">
-            
-
-             
-
-            <!-- Forum Categories -->
-            <StackLayout Spacing="15">
-               
-              <!-- Missing Persons -->
-                <Frame CornerRadius="15"
-                   BackgroundColor="#4e7c9e"
-                       BorderColor="#4e7c9e"
-                   HeightRequest="80"
-                   HasShadow="True">
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                    <Label x:Name="MissingPersonsFrame" Text="Missing Persons"
-                           FontSize="Medium"
-                           FontAttributes="Bold"
-                           HorizontalOptions="StartAndExpand"
-                           VerticalOptions="Center"
-                           TextColor="White" />
-                        <Image Source="right_arrow.png" 
-                           HorizontalOptions="End"
-                           VerticalOptions="Center"
-                           WidthRequest="20" />
-                    </StackLayout>
-                </Frame>
-
-                <!-- Wanted Persons -->
-                <Frame CornerRadius="15"
-                   BackgroundColor="#4e7c9e"
-                       BorderColor="#4e7c9e"
-                   HeightRequest="80"
-                   HasShadow="True">
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                    <Label x:Name="WantedPersonsFrame" Text="Wanted Persons"
-                           FontSize="Medium"
-                           FontAttributes="Bold"
-                           HorizontalOptions="StartAndExpand"
-                           VerticalOptions="Center"
-                           TextColor="White" />
-                        <Image Source="right_arrow.png" 
-                           HorizontalOptions="End"
-                           VerticalOptions="Center"
-                           WidthRequest="20" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
+     
+    <Grid RowDefinitions="Auto,Auto,*">
+        <!-- Filters -->
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Picker Title="Category"
+                    SelectedItem="{Binding SelectedCategory}">
+                <Picker.Items>
+                    <x:String>Missing</x:String>
+                    <x:String>Wanted</x:String>
+                </Picker.Items>
+            </Picker>
+            <!-- Add other filters -->
+            <Button Text="Apply Filters" 
+                    Command="{Binding ApplyFiltersCommand}"/>
         </StackLayout>
-    </ContentPage>
+
+        
+
+        <!-- Profile Cards -->
+        <CollectionView Grid.Row="2" 
+                        ItemsSource="{Binding FilteredPeople}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10">
+                        <Grid RowDefinitions="Auto,Auto,Auto"
+                              ColumnDefinitions="Auto,*">
+                            <Image Grid.RowSpan="3" 
+                                   Source="{Binding Photo}"
+                                   HeightRequest="100"
+                                   WidthRequest="100"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Name}"/>
+                            <Label Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Text="{Binding Description}"/>
+                            <Button Grid.Row="2" 
+                                    Grid.Column="1"
+                                    Text="View Details"
+                                    Command="{Binding ViewDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
 
  
