@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using CommunityConnect.ViewModel;
 using SkiaSharp.Views.Maui.Controls.Hosting; // to be able to use skia sharp animations 
 
 namespace CommunityConnect
@@ -16,9 +17,11 @@ namespace CommunityConnect
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            // Register ViewModels
+            builder.Services.AddSingleton<ValidationRequestsViewModel>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

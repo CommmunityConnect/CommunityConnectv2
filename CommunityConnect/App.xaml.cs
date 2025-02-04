@@ -7,11 +7,14 @@ namespace CommunityConnect
         public App()
         {
             InitializeComponent();
-            // Register ViewModel
-            Resources.Add("ValidationRequestsViewModel", new ValidationRequestsViewModel());
 
             MainPage = new AppShell();
 
+        }
+
+        public App(ValidationRequestsViewModel validationRequestsViewModel) : this()
+        {
+            BindingContext = validationRequestsViewModel;
         }
     }
 }

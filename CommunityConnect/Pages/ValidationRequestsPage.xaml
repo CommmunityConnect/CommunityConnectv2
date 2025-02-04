@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CommunityConnect.ViewModel"
+
              x:Class="CommunityConnect.Pages.ValidationRequestsPage"
              Title="ValidationRequestsPage"
-             BindingContext="{StaticResource ValidationRequestsViewModel}">
+             >
+    <ContentPage.BindingContext>
+        <local:ValidationRequestsViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid RowDefinitions="*, Auto">
             <!-- Header -->
             <StackLayout Grid.Row="0" Padding="20" BackgroundColor="#457b9d">
                 <Label Text="Incident Report Requests" FontSize="Title" FontAttributes="Bold" TextColor="White" />
             </StackLayout>
-
             <!-- Incident Requests List -->
             <CollectionView Grid.Row="1" ItemsSource="{Binding Requests}" VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
@@ -22,20 +26,18 @@
                                 <Label Text="{Binding Location}" TextColor="White" />
                                 <Label Text="{Binding ReporterEmail}" TextColor="White" />
                                 <Image Source="{Binding ImageUrl}" HeightRequest="100" Aspect="AspectFit" />
-
                                 <!-- Approve and Reject Buttons -->
                                 <StackLayout Orientation="Horizontal" Spacing="10">
                                     <Frame BackgroundColor="#2a9d8f" Padding="10" CornerRadius="5">
                                         <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:ValidationRequestsViewModel}}, Path=ApproveRequestCommand}"
-                                                                  CommandParameter="{Binding .}" />
+                                            <TapGestureRecognizer Command="{Binding ApproveRequestCommand}" CommandParameter="{Binding .}" />
                                         </Frame.GestureRecognizers>
                                         <Label Text="APPROVE" TextColor="White" HorizontalTextAlignment="Center" />
                                     </Frame>
                                     <Frame BackgroundColor="#e63946" Padding="10" CornerRadius="5">
                                         <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:ValidationRequestsViewModel}}, Path=RejectRequestCommand}"
-                                                                  CommandParameter="{Binding .}" />
+                                            <TapGestureRecognizer Command="{Binding  ValidationRequestsViewModel}" 
+                                                                  CommandParameter="{Binding .}"/>
                                         </Frame.GestureRecognizers>
                                         <Label Text="REJECT" TextColor="White" HorizontalTextAlignment="Center" />
                                     </Frame>
@@ -45,7 +47,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
             <!-- Bottom Navigation -->
             <StackLayout Grid.Row="2" Orientation="Horizontal" BackgroundColor="#f1faee" HeightRequest="60" Padding="10">
                 <Button Text="Home" Style="{StaticResource BottomNavButtonStyle}" />

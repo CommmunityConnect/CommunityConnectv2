@@ -3,7 +3,7 @@
     x:Class="CommunityConnect.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CommunityConnect"
+    
     xmlns:Pages="clr-namespace:CommunityConnect.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="CommunityConnect"
@@ -24,16 +24,17 @@
                       ContentTemplate="{DataTemplate Pages:Profile}"
                       Icon="profilepic"
                       Route="Profile" />
-    </TabBar>
-    <ShellContent Title="Admin Dashboard"
-                  ContentTemplate="{DataTemplate local:AdminDashboardPage}"/>
+        <ShellContent Title="Admin Dashboard"
+               ContentTemplate="{DataTemplate Pages:AdminDashBoardPage}"/>
 
         <!-- Routes for Navigation -->
         <ShellContent Route="ValidationRequestsPage"
-                  ContentTemplate="{DataTemplate local:ValidationRequestsPage}"/>
+               ContentTemplate="{DataTemplate Pages:ValidationRequestsPage}"/>
         <ShellContent Route="ManageUsersPage"
-                  ContentTemplate="{DataTemplate local:ManageUsersPage}"/>
-     
+               ContentTemplate="{DataTemplate Pages:ManageUsersPage}"/>
+
+    </TabBar>
+    
 
 
 
