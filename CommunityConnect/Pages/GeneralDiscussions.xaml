@@ -14,36 +14,75 @@
     <ContentPage.BindingContext>
         <vm:GeneralDiscussionsViewModel />
     </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="💬 General Discussions" TextColor="white" FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Margin="0,10,0,20"/>
+            <!-- Post Input Section -->
+            <Frame BackgroundColor="White" CornerRadius="15" Padding="15" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+            <Entry Placeholder="What's on your mind?" Text="{Binding NewPostContent}"  BackgroundColor="#f5f5f5f5" 
+                   TextColor="#1c2c38" HeightRequest="45" BindingContext="10"/>
+            <Button Text="Post" Command="{Binding PostCommand}" BackgroundColor="#4e7c9e"
+                    TextColor="white" CornerRadius="10" HeightRequest="45"/>
+                </VerticalStackLayout>
+            </Frame>
+            <!-- Posts Section -->
+            <CollectionView ItemsSource="{Binding Posts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#5a89b2"
+                               CornerRadius="15"
+                               Padding="15"
+                               HasShadow="True"
+                               Margin="5,10">
+                            <VerticalStackLayout Spacing="10">
 
-    <StackLayout Padding="20">
-        <Label Text="General Discussions Page" TextColor="white" FontSize="24" HorizontalOptions="Center" Margin="20"/>
+                                <!-- Post Content -->
+                                <Label Text="{Binding Content}"
+                                       FontSize="18"
+                                       TextColor="White"/>
 
-        <Entry Placeholder="What's on your mind?" Text="{Binding NewPostContent}" />
-        <Button Text="Post" Command="{Binding PostCommand}" BackgroundColor="#4e7c9e"/>
+                                <!-- Comments Section -->
+                                <CollectionView ItemsSource="{Binding Comments}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame BackgroundColor="White"
+                                                   CornerRadius="10"
+                                                   Padding="10"
+                                                   Margin="5,0">
+                                                <Label Text="{Binding Content}"
+                                                       FontSize="14"
+                                                       TextColor="#1c2c38"/>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
 
-        <ListView ItemsSource="{Binding Posts}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Content}" FontSize="18" TextColor="White" />
-                            <ListView ItemsSource="{Binding Comments}">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <StackLayout Padding="5">
-                                                <Label Text="{Binding Content}" FontSize="14" TextColor="WhiteSmoke" />
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                            <Entry Placeholder="Write a comment..." Text="{Binding NewCommentContent}" />
-                            <Button Text="Comment" Command="{Binding CommentCommand}" CommandParameter="{Binding .}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                                <!-- Add Comment -->
+                                <HorizontalStackLayout Spacing="10">
+                                    <Entry Placeholder="Write a comment..."
+                                           Text="{Binding NewCommentContent}"
+                                           BackgroundColor="White"
+                                           TextColor="#1c2c38"
+                                            
+                                           HeightRequest="40"
+                                           HorizontalOptions="FillAndExpand"/>
+
+                                    <Button Text="Send"
+                                            Command="{Binding CommentCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="White"
+                                            TextColor="#4e7c9e"
+                                            CornerRadius="10"
+                                            WidthRequest="80"/>
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

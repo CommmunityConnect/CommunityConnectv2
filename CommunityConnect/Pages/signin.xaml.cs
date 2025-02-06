@@ -1,3 +1,4 @@
+using CommunityConnect.ViewModel;
 using Microsoft.Maui.Controls;
 
 namespace CommunityConnect.Pages;
@@ -9,6 +10,7 @@ public partial class signin : ContentPage
     public signin()
     {
         InitializeComponent();
+        BindingContext = new SigninViewModel(); // Bind ViewModel to XAML
     }
 
     // Button Sign In Clicked
@@ -25,8 +27,18 @@ public partial class signin : ContentPage
             await DisplayAlert("Error", "Please enter your password.", "OK");
             return;
         }
+        // Get the selected user type from the Picker
+        string selectedUserType = userTypePicker.SelectedItem?.ToString();
         // Navigate to MainPage
-        await Navigation.PushAsync(new MainPage());
+        // Navigate based on user type
+        if (selectedUserType == "Admin")
+        {
+            await Navigation.PushAsync(new AdminDashBoardPage());
+        }
+        else
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
     }
 
     // Label Clicked to Navigate to Sign Up

@@ -12,34 +12,91 @@
     </ContentPage.Background>
 
     <ScrollView>
-        <StackLayout Padding="10">
-            <Label Text="Wanted Persons" FontSize="Large" HorizontalOptions="Center" />
-            <SearchBar Placeholder="Search" />
-            <!-- Individual entries for each wanted person -->
-            <Frame BorderColor="#4e7c9e" CornerRadius="10" BackgroundColor="#4e7c9e" Padding="10" Margin="10">
-                <StackLayout Margin="10,10,10,10" Padding="10">
-                    <Label Text="FULL NAMES" FontAttributes="Bold" FontSize="Medium" />
-                    <Image Margin="10,0,260,0" Source="profilepic.png" HeightRequest="80" WidthRequest="80"  Aspect="AspectFill" />
-                    <StackLayout Orientation="Horizontal">
+        <StackLayout Padding="15" Spacing="20">
+            <!-- Page Title -->
+            <Label Text="🚔 Wanted Persons"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   Margin="0,10,0,20"/>
 
-                        <Label Text="Description:" VerticalOptions="Center" />
-                    </StackLayout>
-                    <Label Text="Details: "/>
-                    <Label Text="Reward: Yes" IsVisible="{Binding WantedPersons[0].Reward}" />
-                </StackLayout>
+            <!-- Search Bar -->
+            <Frame BackgroundColor="White" CornerRadius="15" Padding="10" HasShadow="True">
+                <SearchBar Placeholder="Search by name, location, or crime..."
+                           Text="{Binding SearchQuery, Mode=TwoWay}"
+                           BackgroundColor="White"
+                           TextColor="#1c2c38"/>
             </Frame>
-            <Frame BorderColor="#4e7c9e" BackgroundColor="#4e7c9e" CornerRadius="10" Padding="10" Margin="10">
-                <StackLayout>
-                    <Label Text="{Binding WantedPersons[1].FullName}" FontAttributes="Bold" FontSize="Medium" />
-                    <Image Source="placeholder.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFill" />
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding WantedPersons[1].Description}" VerticalOptions="Center" WidthRequest="200" />
-                        <Label Text="{Binding WantedPersons[1].Details}" VerticalOptions="Center" />
-                    </StackLayout>
-                    <Label Text="Reward: Yes" IsVisible="{Binding WantedPersons[1].Reward}" />
-                </StackLayout>
-            </Frame>
-            
+
+            <!-- Wanted Persons List -->
+            <CollectionView ItemsSource="{Binding WantedPersons}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="White"
+                               BackgroundColor="White"
+                               CornerRadius="15"
+                               Padding="15"
+                               HasShadow="True"
+                               Margin="5">
+
+                            <VerticalStackLayout Spacing="10">
+
+                                <!-- Image -->
+                                <Frame CornerRadius="10" HasShadow="True" Padding="0" HorizontalOptions="Center">
+                                    <Image Source="{Binding Photo}" HeightRequest="180" WidthRequest="180" Aspect="AspectFill"/>
+                                </Frame>
+
+                                <!-- Name & Reward -->
+                                <Label Text="{Binding FullName}"
+                                       FontSize="22"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       TextColor="#1c2c38"/>
+
+                                <Label Text="💰 Reward Available"
+                                       FontSize="16"
+                                       FontAttributes="Italic"
+                                       HorizontalOptions="Center"
+                                       TextColor="Green"
+                                       IsVisible="{Binding Reward}"/>
+
+                                <!-- Details -->
+                                <Label Text="🚨 Description"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1c2c38"/>
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="Black"/>
+
+                                <Label Text="📍 Last Seen Location"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1c2c38"/>
+                                <Label Text="{Binding LastSeenLocation}"
+                                       FontSize="14"
+                                       TextColor="Black"/>
+
+                                <Label Text="🔍 Additional Details"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1c2c38"/>
+                                <Label Text="{Binding Details}"
+                                       FontSize="14"
+                                       TextColor="Black"/>
+
+                                <!-- Report Button -->
+                                <Button Text="👀 Report Sightings"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        CornerRadius="10"
+                                        HeightRequest="45"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

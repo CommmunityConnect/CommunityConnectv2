@@ -18,7 +18,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <Grid>
+    <Grid Padding="20">
         <!-- Define rows for layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
 
         <!-- Logo at the top -->
-        <StackLayout Grid.Row="0" Spacing="20" Padding="20" HorizontalOptions="Center">
+        <StackLayout Grid.Row="0" Spacing="10" Padding="20" HorizontalOptions="Center">
             <Image Source="transparentcommunityconnectlogo.png"
                    HeightRequest="150"
                    HorizontalOptions="Center"/>
@@ -71,8 +71,8 @@
                        Grid.Row="1"
                        Margin="0,10,0,0"
                        IndicatorsShape="Circle"
-                       IndicatorColor="#4e7c9e"
-                       SelectedIndicatorColor="Black"
+                       IndicatorColor="#ccc"
+                       SelectedIndicatorColor="#fff"
                        HorizontalOptions="Center"
                        VerticalOptions="End"
                        IndicatorSize="10"/>
@@ -85,16 +85,18 @@
                VerticalOptions="Center"
                TextColor="#fff"
                FontAttributes="Bold"
-               FontSize="16"
-               Text="Welcome to CommunityConnect! Explore and stay connected."
+               FontSize="18"
+               Text="Welcome to CommunityConnect! Stay informed and connected."
                HorizontalTextAlignment="Center" />
 
         <!-- Button for Get Started -->
         <Button Text="Get Started"
-                BackgroundColor="#4e7c9e"
+                BackgroundColor="#ffcc00"
                 Grid.Row="3"
+                TextColor="Black"
                 HeightRequest="50"
-                WidthRequest="200"
+                WidthRequest="250"
+                FontSize="18"
                 FontAttributes="Bold"
                 CornerRadius="25"
                 HorizontalOptions="Center"

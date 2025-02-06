@@ -16,33 +16,50 @@
         <vm:AnnouncementsViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout Padding="20">
-        <Label 
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Page Title -->
+        <StackLayout>
+            <Image Source="announcements.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" />
+            <Label 
             Text="Announcements"
-            FontSize="24"
+            FontSize="26"
             TextColor="White"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" FontAttributes="Bold" />
+        </StackLayout>
+        <!-- Announcement Card -->
+        <Frame BackgroundColor="White" Padding="15" CornerRadius="15" HasShadow="True">
+            <VerticalStackLayout Spacing="10">
+                <!-- Announcement Title -->
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Image Source="alarmicon.png" WidthRequest="30" HeightRequest="30" />
+                    <Label 
+                        Text="Water Crisis Alert"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="Red"
+                        VerticalOptions="Center"
+                        Margin="10,0,0,0" />
+                </StackLayout>
 
-        <Label 
-            Text="Water Crisis Alert"
-            FontSize="20"
-            TextColor="Red"
-            Margin="0,20,0,0"
-            HorizontalOptions="Center" />
+                <!-- Announcement Message -->
+                <Label 
+                    Text="{Binding WaterCrisisMessage}"
+                    FontSize="16"
+                    TextColor="#333"
+                    Margin="0,5,0,0"
+                    LineBreakMode="WordWrap" />
 
-        <Label 
-            Text="{Binding WaterCrisisMessage}"
-            FontSize="16"
-            TextColor="White"
-            Margin="0,10,0,0"
-            HorizontalOptions="Center" />
-
-        <Button 
-            Text="Acknowledge"
-            Command="{Binding AcknowledgeCommand}"
-            BackgroundColor="#227B94"
-            TextColor="White"
-            Margin="0,20,0,0"
-            HorizontalOptions="Center" />
+                <!-- Acknowledge Button -->
+                <Button 
+                    Text="✔ Acknowledge"
+                    Command="{Binding AcknowledgeCommand}"
+                    BackgroundColor="#227B94"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    HeightRequest="45"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>

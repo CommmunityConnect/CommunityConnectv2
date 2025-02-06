@@ -15,55 +15,54 @@
 
     <ScrollView
         Orientation="Vertical" >
-            <VerticalStackLayout
-            Spacing="25"
-            Padding="5" >
+        <VerticalStackLayout
+            Spacing="20"
+            Padding="20" >
 
-                <HorizontalStackLayout
-                HorizontalOptions="CenterAndExpand">
-                    <Image
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand" Spacing="10">
+                <Image
                     Source="profilepic.png"
-                    Aspect="AspectFit"
-                    HeightRequest="170"
-                    WidthRequest="170" />
-                
+                    Aspect="AspectFill"
+                    HeightRequest="160"
+                    WidthRequest="160"
+                        BackgroundColor="White"/>
+
             </HorizontalStackLayout>
 
-                <VerticalStackLayout
-                Spacing="1"
+            <VerticalStackLayout
+                Spacing="5"
                 HorizontalOptions="Center">
-                
+
                 <!-- user's fullname -->
-                    <Label 
+                <Label 
                     Text="User's fullname"
-                    TextColor="Black"
-                    FontSize="15" FontAttributes="Bold" 
-                        HorizontalOptions="Start"/>
-                    <!-- user's email -->
-                    <Label
-                    Text="usersemail@gmail.com"
-                    TextColor="Black"
-                    FontSize="15" FontAttributes="Bold" />
-                </VerticalStackLayout>
-                <!-- line seperator -->
-                
-                <!-- profile title -->
+                    TextColor="White"
+                    FontSize="18" FontAttributes="Bold" 
+                        HorizontalOptions="Center"/>
+                <!-- user's email -->
                 <Label
-                Text="My Profile."
-                TextColor="Black"
+                    Text="usersemail@gmail.com"
+                    TextColor="White"
+                    FontSize="14" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+            <!-- line seperator -->
+
+            <!-- profile title -->
+            <Label
+                Text="My Profile"
+                TextColor="white"
                 FontAttributes="Bold"
-                FontSize="25"
-                HorizontalOptions="Center"/>
-                
-            
+                FontSize="24"
+                HorizontalOptions="Center" Margin="0,30,0,10"/>
+            <!-- Frame Buttons Section -->
+            <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+
                 <!-- change password frame -->
-                <Frame
-                HeightRequest="75"
-                WidthRequest="350"
-                CornerRadius="10"
-                Padding="0"
-                 BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
-                   
+                <Frame HeightRequest="70" WidthRequest="350" CornerRadius="12" Padding="0"
+                       BackgroundColor="white" BorderColor="#4e7c9e" HasShadow="True"
+                >
+
                     <HorizontalStackLayout>
                         <Image
                         Source="reset_password.png"
@@ -74,14 +73,14 @@
                         HorizontalOptions="StartAndExpand" />
                         <Label 
                         Text="Change Password"
-                        TextColor="Black"
+                        TextColor="DarkSlateGray"
                         FontAttributes="Bold"
-                        FontSize="15"
+                        FontSize="16"
                         VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
+                         />
                         <Image
                         Source="right_arrow.png"
-                        Margin="88"
+                        Margin="90"
                         Aspect="AspectFit"
                         HeightRequest="20"
                         WidthRequest="20"
@@ -92,177 +91,108 @@
                 <Frame
                 HeightRequest="75"
                 WidthRequest="350"
-                CornerRadius="10"
-                Padding="0"
-                  BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
-                    
+                CornerRadius="12"
+                Padding="0" HasShadow="True"
+                  BackgroundColor="White" >
+
                     <HorizontalStackLayout>
-                        <Image
-                        Source="delete_user.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="Delete Account"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="110"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
+                        <Image Source="delete_user.png" Margin="20" 
+                               Aspect="AspectFit" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Delete Account" TextColor="DarkSlateGray" FontAttributes="Bold" 
+                               
+                               FontSize="16" VerticalOptions="Center" />
+                        <Image Source="right_arrow.png" Margin="90" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                     </HorizontalStackLayout>
                 </Frame>
-                
+
                 <!-- help frame -->
                 <Frame
                 HeightRequest="75"
                 WidthRequest="350"
-                CornerRadius="10"
+                CornerRadius="12"
                 Padding="0"
-                BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
-                    
+                BackgroundColor="White" BorderColor="#4e7c9e" HasShadow="True">
+
                     <HorizontalStackLayout>
-                        <Image
-                        Source="help.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="CenterAndExpand" />
-                        <Label 
-                        Text="Help"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="185"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
+                        <Image Source="help.png" Margin="20" 
+                               Aspect="AspectFit" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Help" TextColor="DarkSlateGray" FontAttributes="Bold"
+                               FontSize="16" VerticalOptions="Center" />
+                        <Image Source="right_arrow.png" Margin="110" 
+                               Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                     </HorizontalStackLayout>
                 </Frame>
-                
-                
+
+
                 <!-- rate app frame -->
                 <Frame
-                HeightRequest="75"
+                HeightRequest="70"
                 WidthRequest="350"
-                CornerRadius="10"
+                CornerRadius="12"
                 Padding="0"
-                 BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" >
-                     
+                 BackgroundColor="White" BorderColor="#4e7c9e" >
+
                     <HorizontalStackLayout>
-                        <Image
-                        Source="rate_app.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="Rate App"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="150"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
+                        <Image Source="rate_app.png" Margin="20" 
+                               Aspect="AspectFit" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Rate App" TextColor="DarkSlateGray" FontAttributes="Bold" FontSize="16" 
+                               VerticalOptions="Center" />
+                        <Image Source="right_arrow.png" Margin="130" Aspect="AspectFit"
+                               HeightRequest="20" WidthRequest="20"
+                               HorizontalOptions="EndAndExpand"/>
                     </HorizontalStackLayout>
                 </Frame>
-               
-                
+
+
                 <!-- about app frame -->
                 <Frame
-                HeightRequest="75"
+                HeightRequest="70"
                 WidthRequest="350"
-                CornerRadius="10"
+                CornerRadius="12"
                 Padding="0"
-                 BackgroundColor="#4e7c9e" BorderColor="#4e7c9e" >
-                    
+                 BackgroundColor="White" BorderColor="#4e7c9e" >
+
                     <HorizontalStackLayout>
-                        <Image
-                        Source="about_app.png"
-                        Margin="20"
-                        Aspect="AspectFit"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        HorizontalOptions="StartAndExpand" />
-                        <Label 
-                        Text="About App"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        FontSize="15"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                        <Image
-                        Source="right_arrow.png"
-                        Margin="150"
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        WidthRequest="20"
-                        HorizontalOptions="EndAndExpand"/>
+                        <Image Source="about_app.png" Margin="20" 
+                               Aspect="AspectFit" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="About App" TextColor="DarkSlateGray" FontAttributes="Bold" 
+                               FontSize="16" VerticalOptions="Center" />
+                        <Image Source="right_arrow.png" Margin="130"
+                               Aspect="AspectFit" HeightRequest="20"
+                               WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                     </HorizontalStackLayout>
                 </Frame>
+
                 <!-- line seperator -->
                 <Label
                 Text="_________"
-                TextColor="#1c2c38"
-                FontSize="30"
-                HorizontalOptions="Center" />
+                TextColor="White"
+                FontSize="20"
+                HorizontalOptions="Center" Margin="0,30,0,10" />
+                
                 <!-- logout frame -->
-            <Frame
-               HeightRequest="75"
+                <Frame
+               HeightRequest="70"
                WidthRequest="350"
-               CornerRadius="10"
+               CornerRadius="12"
                Padding="0"
-               BackgroundColor="#4e7c9e" BorderColor="#4e7c9e">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnLogoutTapped" />
-                </Frame.GestureRecognizers>
-                <HorizontalStackLayout>
-                    <Image
-            Source="logout.png"
-            Margin="20"
-            Aspect="AspectFit"
-            HeightRequest="30"
-            WidthRequest="30"
-            HorizontalOptions="StartAndExpand" />
-                    <Label 
-            Text="Logout"
-            TextColor="Black"
-            FontAttributes="Bold"
-            FontSize="15"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-                    <Image
-            Source="right_arrow.png"
-            Margin="170"
-            Aspect="AspectFit"
-            HeightRequest="20"
-            WidthRequest="20"
-            HorizontalOptions="EndAndExpand"/>
-                </HorizontalStackLayout>
-            </Frame>
+               BackgroundColor="#e74c3c" BorderColor="#e74c3c" HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLogoutTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout>
+                        <Image Source="logout.png" Margin="20" Aspect="AspectFit" 
+                               HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Logout" TextColor="White" FontSize="16"
+                               VerticalOptions="Center" />
+                        <Image Source="right_arrow.png" Margin="130" Aspect="AspectFit" 
+                               HeightRequest="20" WidthRequest="20" 
+                               HorizontalOptions="EndAndExpand"/>
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
         </VerticalStackLayout>
-        </ScrollView>
+    </ScrollView>
 
     </ContentPage>
      

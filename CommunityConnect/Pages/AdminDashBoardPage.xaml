@@ -4,33 +4,44 @@
              x:Class="CommunityConnect.Pages.AdminDashBoardPage"
              
              Title="AdminDashBoardPage">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ContentPage.Content>
         <Grid RowDefinitions="*, 3*" ColumnDefinitions="*">
             <!-- Header Section -->
-            <StackLayout BackgroundColor="#457b9d" Padding="20" VerticalOptions="Start">
-                <Frame Padding="10" WidthRequest="80" HeightRequest="80" CornerRadius="40" BackgroundColor="White" HorizontalOptions="Center">
-                    <Image Source="profile_placeholder.png" Aspect="AspectFit"/>
+            <StackLayout   Padding="50" VerticalOptions="Start">
+                <Frame Padding="15"   WidthRequest="120"  HeightRequest="120" CornerRadius="60" BackgroundColor="White" HorizontalOptions="Center">
+                    <Image Source="profilepic.png" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
                 </Frame>
-                <Label Text="Admin Dashboard" FontSize="Title" TextColor="White" HorizontalTextAlignment="Center"/>
+                <Label Text="Admin Dashboard" FontSize="28" TextColor="White" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
             </StackLayout>
 
             <!-- Buttons Section -->
-            <StackLayout Grid.Row="1" Spacing="20" Padding="20">
+            <StackLayout Grid.Row="1" Spacing="30" Padding="50">
                 <!-- Validation Requests Frame -->
-                <Frame BackgroundColor="#1d3557" CornerRadius="10" Padding="20" HasShadow="True" BorderColor="White">
+                <Frame BackgroundColor="#ffffff" CornerRadius="20" Padding="30" HasShadow="True" BorderColor="#DDDDDD">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavigateToValidationRequestsCommand}" />
                     </Frame.GestureRecognizers>
-                    <Label Text="Validation Requests" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center" />
-                    
+                    <StackLayout>
+                        <Image Source="validationrequest.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
+                        <Label Text="Validation Requests" FontSize="20" TextColor="#333333" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    </StackLayout>
                 </Frame>
 
                 <!-- Manage Users Frame -->
-                <Frame BackgroundColor="#457b9d" CornerRadius="10" Padding="20" HasShadow="True" BorderColor="White">
+                <Frame BackgroundColor="#ffffff" CornerRadius="20" Padding="30" HasShadow="True" BorderColor="#dddddd">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavigateToManageUsersCommand}" />
                     </Frame.GestureRecognizers>
-                    <Label Text="Manage Users" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center" />
+                    <StackLayout>
+                        <Image Source="manageuser.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
+                        <Label Text="Manage Users" FontSize="20" TextColor="#333333" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    </StackLayout>
                 </Frame>
             </StackLayout>
         </Grid>

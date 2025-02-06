@@ -13,84 +13,131 @@
 
     <!-- This page should hold the main page with the menus-->
     <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="10">
-            
-             
+        <VerticalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
+
+            <!-- App Logo -->
             <Frame BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="300" >
                 <Image Source="transparentcommunityconnectlogo.png"/>
             </Frame>
-            <HorizontalStackLayout Margin="0, 1, 0, 10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame CornerRadius="5"  HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+
+            <!-- Grid for Menu Items -->
+            <Grid ColumnSpacing="15" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Incident Report -->
+
+                <Frame CornerRadius="5" Grid.Row="0" Grid.Column="0" Style="{StaticResource MenuFrameStyle}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedIncidentReport" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="complaint.png " HeightRequest="50" />
-                        <Label Text="IncidentReport" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout  Style="{StaticResource MenuContentStyle}">
+                        <Image Source="reporting.jpg " HeightRequest="50" />
+                        <Label Text="IncidentReport" Style="{StaticResource MenuLabelStyle}" />
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <!-- Real-Time Alerts -->
+                <Frame Grid.Row="0" Grid.Column="1" Style="{StaticResource MenuFrameStyle}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedAlerts" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="alert.png" HeightRequest="50" />
-                        <Label Text="Real Time Alert (Sebatakgomo)" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout  Style="{StaticResource MenuContentStyle}">
+                        <Image Source="realtime.jpg" HeightRequest="50" />
+                        <Label Text="Real Time Alert (Sebatakgomo)" Style="{StaticResource MenuLabelStyle}"/>
                     </VerticalStackLayout>
                 </Frame>
-            </HorizontalStackLayout>
 
-            <HorizontalStackLayout Margin="-10, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <!-- Community Collaboration -->
+
+                <Frame Grid.Column="0" Grid.Row="1" Style="{StaticResource MenuFrameStyle}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedForum" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="alert.png" HeightRequest="50" />
-                        <Label Text="Community collaboration" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" />
+                    <VerticalStackLayout Style="{StaticResource MenuContentStyle}">
+                        <Image Source="forum.jpg" HeightRequest="50"/>
+                        <Label Text="Community Collaboration" Style="{StaticResource MenuLabelStyle}"/>
                     </VerticalStackLayout>
-               
-        
+
+
                 </Frame>
 
-                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150" Margin="10"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+                <!-- Emergency Contact -->
+                <Frame Grid.Row="1" Grid.Column="1" Style="{StaticResource MenuFrameStyle}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedEmergency" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" >
-                        <Image Source="phone.png" HeightRequest="30" />
-                        <Label Text="Emergency Contact" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
+                    <VerticalStackLayout Style="{StaticResource MenuContentStyle}">
+                        <Image Source="alarmicon.png" HeightRequest="50"/>
+                        <Label Text="Emergency Contact" Style="{StaticResource MenuLabelStyle}"/>
                     </VerticalStackLayout>
                 </Frame>
-            </HorizontalStackLayout>
 
-            <HorizontalStackLayout Margin="0, 1, 0, 10"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Frame CornerRadius="5" HeightRequest="150" WidthRequest="150"  HorizontalOptions="Center" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+
+                <!-- Incident Feed -->
+                <Frame Grid.Row="2" Grid.Column="0" Style="{StaticResource MenuFrameStyle}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedIncidentFeed" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" >
-                        <Image Source="satelliteview.png" HeightRequest="30" />
-                        <Label Text="Incident Feed" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="14" Padding="20" />
+                    <VerticalStackLayout Style="{StaticResource MenuContentStyle}">
+                        <Image Source="incident.png" HeightRequest="50"/>
+                        <Label Text="Incident Feed" Style="{StaticResource MenuLabelStyle}"/>
                     </VerticalStackLayout>
                 </Frame>
-                
-                
 
-                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="5" Margin="10" BackgroundColor="#4e7c9e" BorderColor="Transparent">
+
+                <!-- People of Interest -->
+                <Frame Grid.Row="2" Grid.Column="1" Style="{StaticResource MenuFrameStyle}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedPeopleOfInterest" />
                     </Frame.GestureRecognizers>
-                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
-                        <Image Source="question.png" HeightRequest="45" />
-                        <Label Text="People of Interest" HorizontalOptions="Center" FontAttributes="Bold" FontSize="14" Padding="20" />
+                    <VerticalStackLayout Style="{StaticResource MenuContentStyle}">
+                        <Image Source="peopleofinterest.png" HeightRequest="50"/>
+                        <Label Text="People of Interest" Style="{StaticResource MenuLabelStyle}"/>
                     </VerticalStackLayout>
                 </Frame>
-            </HorizontalStackLayout>
+            </Grid>
 
-             
+
+
         </VerticalStackLayout>
     </ScrollView>
+    <!-- Define UI Styles -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MenuFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="HeightRequest" Value="130"/>
+                <Setter Property="WidthRequest" Value="160"/>
+                <Setter Property="BackgroundColor" Value="LightBlue"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="MenuContentStyle" TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="10"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="MenuLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#0f172a"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
 </ContentPage>
