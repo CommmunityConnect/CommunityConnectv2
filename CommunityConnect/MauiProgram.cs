@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityConnect.Services; // to be able to use skia sharp animations 
 using CommunityConnect.ViewModel;
-using SkiaSharp.Views.Maui.Controls.Hosting; // to be able to use skia sharp animations 
+using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace CommunityConnect
 {
@@ -19,6 +20,7 @@ namespace CommunityConnect
                 });
             // Register ViewModels
             builder.Services.AddSingleton<ValidationRequestsViewModel>();
+            builder.Services.AddSingleton<ILocationService, LocationService>();
 
 #if DEBUG
             builder.Logging.AddDebug();
