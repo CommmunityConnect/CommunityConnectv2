@@ -6,43 +6,49 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityConnect.Data;
+using CommunityConnect.Pages;
 using CommunityConnect.model;
+using CommunityConnect.Services;
+using CommunityToolkit.Mvvm.Input;
 
 namespace CommunityConnect.ViewModel
 {
-        public class AlertsViewModel : INotifyPropertyChanged
+    public partial class AlertsViewModel : ObservableObject
+    {
+        private readonly IncidentReportService _incidentReportService;
+        private readonly AppDatabase _database;
+
+        public ObservableCollection<Alert> Alerts { get; set; } = new();
+
+        public ObservableCollection<IncidentReport> ApprovedIncidents { get; set; } = new();
+        public IRelayCommand LoadAlertsCommand { get; }
+
+        public AlertsViewModel(AppDatabase database, IncidentReportService incidentReportService)
         {
-            public event PropertyChangedEventHandler PropertyChanged;
+            _database = database;
+            _incidentReportService = incidentReportService;
+            LoadAlertsCommand = new RelayCommand(async () => await LoadAlertsAsync());
+        }
+        private async Task LoadAlertsAsync()
+        {
+            var alerts = await _database.GetAlertsAsync();
+            Alerts.Clear();
+            foreach (var alert in alerts)
+                Alerts.Add(alert);
+        }
 
-            private ObservableCollection<Incident> _incidents;
-            public ObservableCollection<Incident> Incidents
-            {
-                get => _incidents;
-                set
-                {
-                    if (_incidents != value)
-                    {
-                        _incidents = value;
-                        OnPropertyChanged();
-                    }
-                }
-            }
 
-            public AlertsViewModel()
+        private async void LoadApprovedIncidents()
+        {
+            var incidents = await _incidentReportService.GetApprovedReports();
+            ApprovedIncidents.Clear();
+            foreach (var incident in incidents)
             {
-                Incidents = new ObservableCollection<Incident>
-            {
-                new Incident { Title = "Potholes", Severity = "moderate", Description = "Urgent attention required at the location. Stay clear of the area.", Icon = "municipal_services.png" },
-                new Incident { Title = "Robbery", Severity = "moderate", Description = "Urgent attention required at the location. Stay clear of the area.", Icon = "local_police.png" },
-                new Incident { Title = "Water Crisis", Severity = "moderate", Description = "Urgent attention required at the location. Stay clear of the area.", Icon = "municipal_services.png" },
-                new Incident { Title = "Accident", Severity = "severe", Description = "Urgent attention required at the location. Stay clear of the area.", Icon = "ambulance.png" },
-            };
-            }
-
-            protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                ApprovedIncidents.Add(incident);
             }
         }
     }
+
+}
 

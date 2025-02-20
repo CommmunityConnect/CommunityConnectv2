@@ -33,6 +33,9 @@ namespace CommunityConnect.ViewModel
         private async void OnAcknowledge()
         {
             await Application.Current.MainPage.DisplayAlert("Acknowledged", "Thank you for acknowledging the announcement.", "OK");
+
+            // Navigate back to the previous page
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

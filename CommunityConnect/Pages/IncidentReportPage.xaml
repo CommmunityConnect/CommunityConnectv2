@@ -12,10 +12,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <!-- Bind the page's BindingContext to the ViewModel -->
-    <ContentPage.BindingContext>
-        <vm:IncidentReportViewModel />
-    </ContentPage.BindingContext>
+    
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
             <!-- Page title-->

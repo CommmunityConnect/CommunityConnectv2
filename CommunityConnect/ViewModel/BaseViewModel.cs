@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommunityConnect.ViewModel
 {
-    class BaseViewModel
+    public class BaseViewModel
     {
     }
 }

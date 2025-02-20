@@ -22,6 +22,8 @@ namespace CommunityConnect
             typeof(signin),
             typeof(signup),
             typeof(MainPage),
+            typeof(AdminApprovalPage),
+            typeof(ManageUsersPage)
         ];
         private static void RegisterRoute()
         {

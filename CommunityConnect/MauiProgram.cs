@@ -1,11 +1,18 @@
 ﻿using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
+
+ 
 using CommunityConnect.ViewModel;
-using SkiaSharp.Views.Maui.Controls.Hosting; // to be able to use skia sharp animations 
+ 
+using CommunityConnect.Data;
+using CommunityConnect.Services;
 
 namespace CommunityConnect
 {
     public static class MauiProgram
     {
+        
+
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -23,6 +30,12 @@ namespace CommunityConnect
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            // ✅ Register SQLite Database
+        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "CommunityConnect.db");
+        builder.Services.AddSingleton<AppDatabase>();
+            builder.Services.AddSingleton<IncidentReportService>();
+
+          
 
             return builder.Build();
         }

@@ -14,15 +14,17 @@ namespace CommunityConnect.ViewModel
     {
         public AdminDashBoardViewModel()
         {
-            // Initialize commands or other logic
+             
         }
 
         [RelayCommand]
         private async Task NavigateToValidationRequests()
         {
-            // Navigation logic for Validation Requests
-            await Shell.Current.GoToAsync(nameof(ValidationRequestsPage));
+            // Absolute navigation route to Admin Approval Page
+            await Shell.Current.GoToAsync(nameof(AdminApprovalPage));
         }
+
+
 
         [RelayCommand]
         private async Task NavigateToManageUsers()

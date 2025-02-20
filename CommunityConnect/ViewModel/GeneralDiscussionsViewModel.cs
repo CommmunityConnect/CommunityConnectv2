@@ -48,12 +48,14 @@ namespace CommunityConnect.ViewModel
             CommentCommand = new Command<Post>(OnComment);
         }
 
-        private void OnPost()
+        private async void OnPost()
         {
             if (!string.IsNullOrWhiteSpace(NewPostContent))
             {
                 Posts.Add(new Post { Content = NewPostContent });
                 NewPostContent = string.Empty;
+                // Show success message
+                await Application.Current.MainPage.DisplayAlert("Success", "Posted successfully", "OK");
             }
         }
 
@@ -63,6 +65,7 @@ namespace CommunityConnect.ViewModel
             {
                 post.Comments.Add(new Comment { Content = NewCommentContent });
                 NewCommentContent = string.Empty;
+
             }
         }
 

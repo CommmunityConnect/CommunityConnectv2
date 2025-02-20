@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommunityConnect.Services;
 using Microsoft.Maui.Controls;
 
 namespace CommunityConnect.ViewModel
 {
     public class IncidentReportViewModel : INotifyPropertyChanged
     {
+        private readonly IncidentReportService _incidentReportService;
+        public ObservableCollection<IncidentReport> IncidentReports { get; set; } = new();
         private string description;
         private string incidentType;
         private string location;
@@ -88,10 +92,21 @@ namespace CommunityConnect.ViewModel
 
         public IncidentReportViewModel()
         {
+            _incidentReportService = new IncidentReportService();
+            LoadReports();
             SubmitReportCommand = new Command(OnSubmitReport);
             UploadPhotoCommand = new Command(OnUploadPhoto);
         }
 
+        private async void LoadReports()
+        {
+            var reports = await _incidentReportService.GetPendingReports();
+            IncidentReports.Clear();
+            foreach (var report in reports)
+            {
+                IncidentReports.Add(report);
+            }
+        }
         private async void OnSubmitReport()
         {
             if (string.IsNullOrWhiteSpace(Description) ||
@@ -102,6 +117,20 @@ namespace CommunityConnect.ViewModel
                 await Application.Current.MainPage.DisplayAlert("Error", "Please fill all fields before submitting.", "OK");
                 return;
             }
+            // Create a new IncidentReport object
+            var incident = new IncidentReport
+            {
+                Description = Description,
+                IncidentType = IncidentType,
+                Location = Location,
+                ImagePath = Photo.ToString(),
+                IsApproved = false // New reports are unapproved by default
+            };
+            // Save to database
+            var db = DatabaseHelper.GetDatabaseConnection(); // Ensure this returns the SQLiteAsyncConnection
+            await db.CreateTableAsync<IncidentReport>();
+
+            await db.InsertAsync(incident);
 
             // Logic to submit the report
             await Application.Current.MainPage.DisplayAlert("Success", "Report submitted successfully!", "OK");

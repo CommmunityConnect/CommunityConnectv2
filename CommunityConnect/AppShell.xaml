@@ -32,11 +32,14 @@
 
 
 
+    <!-- Routes for pages -->
+    <ShellContent Route="AdminApprovalPage"
+              ContentTemplate="{DataTemplate Pages:AdminApprovalPage}" />
 
-    <!-- Routes for Navigation -->
+
     <ShellContent Route="ValidationRequestsPage"
-               ContentTemplate="{DataTemplate Pages:ValidationRequestsPage}"/>
+                  ContentTemplate="{DataTemplate Pages:ValidationRequestsPage}" />
     <ShellContent Route="ManageUsersPage"
-               ContentTemplate="{DataTemplate Pages:ManageUsersPage}"/>
+                  ContentTemplate="{DataTemplate Pages:ManageUsersPage}" />
 
 </Shell>

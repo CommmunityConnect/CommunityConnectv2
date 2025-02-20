@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.AdminDashBoardPage"
              
-             Title="AdminDashBoardPage">
+             Title="AdminDashBoardPage"
+             Shell.TabBarIsVisible="False">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,1">
             <GradientStop Color="#4e7c9e" Offset="0.1" />
@@ -22,27 +23,21 @@
 
             <!-- Buttons Section -->
             <StackLayout Grid.Row="1" Spacing="30" Padding="50">
-                <!-- Validation Requests Frame -->
-                <Frame BackgroundColor="#ffffff" CornerRadius="20" Padding="30" HasShadow="True" BorderColor="#DDDDDD">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavigateToValidationRequestsCommand}" />
-                    </Frame.GestureRecognizers>
-                    <StackLayout>
-                        <Image Source="validationrequest.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
-                        <Label Text="Validation Requests" FontSize="20" TextColor="#333333" HorizontalTextAlignment="Center" FontAttributes="Bold" />
-                    </StackLayout>
-                </Frame>
+                <!-- Validation Requests Button -->
+                <Button Text="Validation Requests"
+                        BackgroundColor="#4e7c9e"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Command="{Binding NavigateToValidationRequestsCommand}" Padding="45" />
 
-                <!-- Manage Users Frame -->
-                <Frame BackgroundColor="#ffffff" CornerRadius="20" Padding="30" HasShadow="True" BorderColor="#dddddd">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NavigateToManageUsersCommand}" />
-                    </Frame.GestureRecognizers>
-                    <StackLayout>
-                        <Image Source="manageuser.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
-                        <Label Text="Manage Users" FontSize="20" TextColor="#333333" HorizontalTextAlignment="Center" FontAttributes="Bold" />
-                    </StackLayout>
-                </Frame>
+                <!-- Manage Users Button -->
+                <Button Text="Manage Users"
+                        BackgroundColor="#4e7c9e"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Command="{Binding NavigateToManageUsersCommand}" Padding="45" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>
