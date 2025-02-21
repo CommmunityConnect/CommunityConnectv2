@@ -1,89 +1,49 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using CommunityConnect.model;
+using CommunityConnect.Model;
 using CommunityConnect.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System.Windows.Input;
-using Microsoft.Maui.Controls;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace CommunityConnect.ViewModel
 {
-    public class AdminApprovalViewModel : BindableObject
+    public partial class AdminApprovalViewModel : CommunityToolkit.Mvvm.ComponentModel.ObservableObject
     {
-        private readonly IncidentReportService _incidentReportService;
-
-        public ObservableCollection<IncidentReport> PendingReports { get; set; } = new();
-
-        public RelayCommand<int> ApproveCommand { get; }
-        public RelayCommand<int> DeclineCommand { get; }
+        public ObservableCollection<IncidentReport> PendingReports { get; } = new();
 
         public AdminApprovalViewModel()
         {
-            _incidentReportService = new IncidentReportService();
-            System.Diagnostics.Debug.WriteLine("AdminApprovalViewModel Initialized");
-
-            ApproveCommand = new RelayCommand<int>(async (id) => await ApproveReport(id));
-            DeclineCommand = new RelayCommand<int>(async (id) => await DeclineReport(id));
-
-            PendingReports = new ObservableCollection<IncidentReport>();
             LoadPendingReports();
         }
 
-        /// <summary>
-        /// Loads all pending incident reports for admin review.
-        /// </summary>
-        public async void LoadPendingReports()
+        private void LoadPendingReports()
         {
-            var reports = await _incidentReportService.GetPendingReports();
             PendingReports.Clear();
-            foreach (var report in reports)
+            foreach (var report in IncidentReportService.GetPendingReports())
             {
                 PendingReports.Add(report);
             }
-            Console.WriteLine($"AdminApprovalPage Loaded {PendingReports.Count} reports.");
         }
 
-        /// <summary>
-        /// Refreshes the pending reports list.
-        /// </summary>
-        public async Task RefreshReports()
+        public void ApproveReport(IncidentReport report)
         {
-            var reports = await _incidentReportService.GetPendingReports();
-            PendingReports.Clear();
-            foreach (var report in reports)
+            if (report != null)
             {
-                PendingReports.Add(report);
+                IncidentReportService.UpdateReportStatus(report.Id, true);
+                LoadPendingReports(); // Refresh list after approving
+                                      // Notify AlertsViewModel to refresh approved reports
+                AlertsViewModel.Instance.LoadApprovedReports();
             }
-            Console.WriteLine($"Admin page refreshed: {PendingReports.Count} reports.");
         }
 
-        /// <summary>
-        /// Approves a report and updates the list.
-        /// </summary>
-        public async Task ApproveReport(int reportId)
+        public void DeclineReport(IncidentReport report)
         {
-            await _incidentReportService.UpdateReportStatus(reportId, true);
-            await Application.Current.MainPage.DisplayAlert("Success", "Incident approved.", "OK");
-            LoadPendingReports(); // Refresh the list
-        }
-
-        /// <summary>
-        /// Declines a report and updates the list.
-        /// </summary>
-        public async Task DeclineReport(int reportId)
-        {
-            await _incidentReportService.UpdateReportStatus(reportId, false);
-            await Application.Current.MainPage.DisplayAlert("Notice", "Incident declined.", "OK");
-            LoadPendingReports(); // Refresh the list
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (report != null)
+            {
+                IncidentReportService.UpdateReportStatus(report.Id, false);
+                LoadPendingReports(); // Refresh list after declining
+            }
         }
     }
+
 }

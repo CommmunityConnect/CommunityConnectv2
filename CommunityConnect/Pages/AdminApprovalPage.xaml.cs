@@ -12,5 +12,6 @@ public partial class AdminApprovalPage : ContentPage
         InitializeComponent();
         BindingContext = new AdminApprovalViewModel(); // Set the view model
     }
+   
 }
 

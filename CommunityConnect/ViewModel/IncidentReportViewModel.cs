@@ -1,141 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using CommunityConnect.model;
 using CommunityConnect.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Maui.Controls;
 
 namespace CommunityConnect.ViewModel
 {
-    public class IncidentReportViewModel : INotifyPropertyChanged
+    public partial class IncidentReportViewModel : CommunityToolkit.Mvvm.ComponentModel.ObservableObject
     {
-        private readonly IncidentReportService _incidentReportService;
-        public ObservableCollection<IncidentReport> IncidentReports { get; set; } = new();
+        public ObservableCollection<IncidentReport> IncidentReports { get; }
+
         private string description;
         private string incidentType;
         private string location;
         private ImageSource photo;
 
-        // Properties with INotifyPropertyChanged
         public string Description
         {
             get => description;
-            set
-            {
-                if (description != value)
-                {
-                    description = value;
-                    OnPropertyChanged();
-                }
-            }
+            set => SetProperty(ref description, value);
         }
 
         public string IncidentType
         {
             get => incidentType;
-            set
-            {
-                if (incidentType != value)
-                {
-                    incidentType = value;
-                    OnPropertyChanged();
-                }
-            }
+            set => SetProperty(ref incidentType, value);
         }
 
         public string Location
         {
             get => location;
-            set
-            {
-                if (location != value)
-                {
-                    location = value;
-                    OnPropertyChanged();
-                }
-            }
+            set => SetProperty(ref location, value);
         }
 
         public ImageSource Photo
         {
             get => photo;
-            set
-            {
-                if (photo != value)
-                {
-                    photo = value;
-                    OnPropertyChanged();
-                }
-            }
+            set => SetProperty(ref photo, value);
         }
 
-        // List of possible incident types
-        public List<string> IncidentTypes { get; } = new List<string>
+        public List<string> IncidentTypes { get; } = new()
         {
-            "Assault",
-            "Accident",
-            "Robbery",
-            "Pothole",
-            "Water Crisis",
-            "Fire",
-            "Other"
+            "Assault", "Accident", "Robbery", "Pothole", "Water Crisis", "Fire", "Other"
         };
 
-        // Commands for submitting and uploading
         public ICommand SubmitReportCommand { get; }
         public ICommand UploadPhotoCommand { get; }
 
         public IncidentReportViewModel()
         {
-            _incidentReportService = new IncidentReportService();
-            LoadReports();
+            // Access IncidentReports directly from the static service
+            IncidentReports = IncidentReportService.IncidentReports;
+
             SubmitReportCommand = new Command(OnSubmitReport);
             UploadPhotoCommand = new Command(OnUploadPhoto);
         }
 
-        private async void LoadReports()
-        {
-            var reports = await _incidentReportService.GetPendingReports();
-            IncidentReports.Clear();
-            foreach (var report in reports)
-            {
-                IncidentReports.Add(report);
-            }
-        }
-        private async void OnSubmitReport()
+        private void OnSubmitReport()
         {
             if (string.IsNullOrWhiteSpace(Description) ||
                 string.IsNullOrWhiteSpace(IncidentType) ||
                 string.IsNullOrWhiteSpace(Location) ||
                 Photo == null)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Please fill all fields before submitting.", "OK");
+                Application.Current.MainPage.DisplayAlert("Error", "Please fill all fields before submitting.", "OK");
                 return;
             }
-            // Create a new IncidentReport object
+
             var incident = new IncidentReport
             {
                 Description = Description,
                 IncidentType = IncidentType,
                 Location = Location,
-                ImagePath = Photo.ToString(),
-                IsApproved = false // New reports are unapproved by default
+                ImagePath = Photo?.ToString(),
+                IsApproved = false
             };
-            // Save to database
-            var db = DatabaseHelper.GetDatabaseConnection(); // Ensure this returns the SQLiteAsyncConnection
-            await db.CreateTableAsync<IncidentReport>();
 
-            await db.InsertAsync(incident);
+            // Use IncidentReportService directly (since it's static)
+            IncidentReportService.SubmitIncident(incident);
 
-            // Logic to submit the report
-            await Application.Current.MainPage.DisplayAlert("Success", "Report submitted successfully!", "OK");
-            await Shell.Current.GoToAsync("MainPage");
-            //await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+            Application.Current.MainPage.DisplayAlert("Success", "Report submitted successfully!", "OK");
+
+            Shell.Current.GoToAsync("MainPage");
         }
 
         private async void OnUploadPhoto()
@@ -151,13 +100,5 @@ namespace CommunityConnect.ViewModel
                 Photo = ImageSource.FromFile(result.FullPath);
             }
         }
-
-        // INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
-

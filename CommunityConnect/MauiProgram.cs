@@ -36,9 +36,15 @@ namespace CommunityConnect
             // ✅ Register SQLite Database
         string dbPath = Path.Combine(FileSystem.AppDataDirectory, "CommunityConnect.db");
         builder.Services.AddSingleton<AppDatabase>();
-            builder.Services.AddSingleton<IncidentReportService>();
+            
+            builder.Services.AddSingleton<IncidentReportViewModel>();
+            builder.Services.AddSingleton<AdminApprovalViewModel>();
+            builder.Services.AddSingleton<AlertsViewModel>();
 
-          
+
+
+
+
 
             return builder.Build();
         }

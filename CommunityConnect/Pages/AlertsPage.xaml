@@ -3,61 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.AlertsPage"
              Shell.NavBarIsVisible="True"
-             Title="AlertsPage">
+             Title="Community Alerts">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,1">
             <GradientStop Color="#4e7c9e" Offset="0.1" />
             <GradientStop Color="#1c2c38" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    <StackLayout Padding="10">
-        <Label Text="Recent Incidents" FontAttributes="Bold" FontSize="Medium"/>
-        <CollectionView ItemsSource="{Binding Incidents}"
-                VerticalOptions="FillAndExpand"
-                BackgroundColor="Transparent"
-                Margin="10">
-            <CollectionView.ItemTemplate>
+    <StackLayout Padding="20">
+        <Label Text="📢 Community Alerts" 
+               TextColor="White" 
+               FontAttributes="Bold" 
+               FontSize="26" 
+               HorizontalOptions="Center"
+               Margin="0,0,0,20"/>
+        <ListView ItemsSource="{Binding ApprovedReports}">
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="#4e7c9e" 
-                   BackgroundColor="#4e7c9e"
-                   CornerRadius="8"
-                   Padding="15"
-                   Margin="5"
-                   HasShadow="True">
-                        <Grid RowDefinitions="Auto, Auto, Auto" 
-                      ColumnDefinitions="50, *" 
-                      ColumnSpacing="10">
-                            <!-- Incident Icon -->
-                            <Image Grid.RowSpan="3" 
-                           Source="{Binding Icon}" 
-                           WidthRequest="50" 
-                           HeightRequest="50" 
-                           VerticalOptions="Start" />
-
-                            <!-- Incident Title -->
-                            <Label Grid.Column="1"
-                           Text="{Binding Title}" 
-                           FontSize="Medium" 
-                           FontAttributes="Bold" 
-                           TextColor="White" />
-
-                            <!-- Incident Severity -->
-                            <Label Grid.Row="1" Grid.Column="1"
-                           Text="{Binding Severity}" 
-                           FontAttributes="Italic" 
-                           FontSize="Small"
-                           TextColor="{Binding Severity, Converter={StaticResource SeverityToColorConverter}}" />
-
-                            <!-- Incident Description -->
-                            <Label Grid.Row="2" Grid.Column="1"
-                           Text="{Binding Description}" 
-                           FontSize="Small"
-                           TextColor="White" />
-                        </Grid>
-                    </Frame>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Title}" FontSize="20" />
+                            <Label Text="{Binding Description}" FontSize="14" />
+                            <Label Text="{Binding Location}" FontSize="14" />
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </StackLayout>
 </ContentPage>

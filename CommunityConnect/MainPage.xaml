@@ -13,7 +13,7 @@
 
     <!-- This page should hold the main page with the menus-->
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
+        <VerticalStackLayout Padding="20" Spacing="20"  >
 
             <!-- App Logo -->
             <Frame BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="300" >
@@ -40,7 +40,7 @@
                     </Frame.GestureRecognizers>
                     <VerticalStackLayout  Style="{StaticResource MenuContentStyle}">
                         <Image Source="reporting.jpg " HeightRequest="50" />
-                        <Label Text="IncidentReport" Style="{StaticResource MenuLabelStyle}" />
+                        <Label Text="Report Incidents" Style="{StaticResource MenuLabelStyle}" />
                     </VerticalStackLayout>
                 </Frame>
 
@@ -76,7 +76,7 @@
                     </Frame.GestureRecognizers>
                     <VerticalStackLayout Style="{StaticResource MenuContentStyle}">
                         <Image Source="alarmicon.png" HeightRequest="50"/>
-                        <Label Text="Emergency Contact" Style="{StaticResource MenuLabelStyle}"/>
+                        <Label Text="Emergency Contacts" Style="{StaticResource MenuLabelStyle}"/>
                     </VerticalStackLayout>
                 </Frame>
 

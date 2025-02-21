@@ -16,7 +16,7 @@
 
     <ScrollView>
         <VerticalStackLayout 
-            Spacing="25" Padding="30" HorizontalOptions="CenterAndExpand">
+            Spacing="25" Padding="30"  >
             <!-- App Logo -->
             <Image Source="transparentcommunityconnectlogo.png"
                  HeightRequest="140" HorizontalOptions="Center"/>

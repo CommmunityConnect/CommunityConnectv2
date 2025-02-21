@@ -1,24 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using SQLite;
+﻿using System.Collections.ObjectModel;
+using CommunityConnect.model;
 
 namespace CommunityConnect.Services
 {
-    public class IncidentReportService
+    public static class IncidentReportService
     {
-        private readonly SQLiteAsyncConnection _database;
+        private static int nextId = 1; // Initialize a counter for IDs
 
-        public IncidentReportService()
+        public static ObservableCollection<IncidentReport> IncidentReports { get; set; } = new();
+
+        public static void SeedTestData()
         {
-            _database = DatabaseHelper.GetDatabaseConnection();
-        }
-        public async Task SeedTestData()
-        {
-            var existingReports = await _database.Table<IncidentReport>().ToListAsync();
-            if (existingReports.Count == 0)
+            if (IncidentReports.Count == 0)
             {
-                await _database.InsertAsync(new IncidentReport
+                IncidentReports.Add(new IncidentReport
                 {
+                    Id = nextId++, // Incrementing ID for test data
                     Title = "Test Report",
                     Description = "This is a test incident report.",
                     Location = "Test Location",
@@ -26,46 +23,33 @@ namespace CommunityConnect.Services
                 });
             }
         }
-        public async Task<bool> UpdateIncident(IncidentReport incident)
+
+        public static bool SubmitIncident(IncidentReport report)
         {
-            int result = await _database.UpdateAsync(incident);
-            return result > 0;
+            report.Id = nextId++; // Assign a unique ID
+            report.IsApproved = false;
+            IncidentReports.Add(report);
+            return true;
         }
 
-        public async Task<bool> SubmitIncident(IncidentReport report)
+        public static ObservableCollection<IncidentReport> GetPendingReports()
         {
-            report.IsApproved = false;  // Mark as pending by default
-            report.IsDeclined = false;
-
-            int result = await _database.InsertAsync(report);
-            return result > 0;
-        }
-        public async Task<List<IncidentReport>> GetAllReports()
-        {
-            var reports = await _database.Table<IncidentReport>().ToListAsync();
-            Console.WriteLine($"Total reports: {reports.Count}"); // Debugging
-            return reports;
-            //return await _database.Table<IncidentReport>().ToListAsync();
-        }
-        public   async Task<List<IncidentReport>> GetPendingReports()
-        {
-            var reports = await _database.Table<IncidentReport>().Where(r => r.IsApproved == false).ToListAsync();
-            Console.WriteLine($"Fetched {reports.Count} pending reports");
-            return reports;
-        }
-        public async Task<List<IncidentReport>> GetApprovedReports()
-        {
-            return await _database.Table<IncidentReport>().Where(i => i.IsApproved).ToListAsync();
+            return new ObservableCollection<IncidentReport>(IncidentReports.Where(r => !r.IsApproved));
         }
 
-        public async Task UpdateReportStatus(int id, bool isApproved)
+        public static ObservableCollection<IncidentReport> GetApprovedReports()
         {
-            var report = await _database.Table<IncidentReport>().Where(r => r.Id == id).FirstOrDefaultAsync();
+            return new ObservableCollection<IncidentReport>(IncidentReports.Where(r => r.IsApproved));
+        }
+
+        public static void UpdateReportStatus(int id, bool isApproved)
+        {
+            var report = IncidentReports.FirstOrDefault(r => r.Id == id);
             if (report != null)
             {
                 report.IsApproved = isApproved;
-                await _database.UpdateAsync(report);
             }
         }
     }
+
 }
