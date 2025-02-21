@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommunityConnect.Pages.AboutAppPage"
+             Title="AboutAppPage" BackgroundColor="WhiteSmoke">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="About Community Connect"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+            <Label Text="Community Connect is a next-generation safety platform designed exclusively for South African communities. Born from real-life challenges faced by neighborhoods across Limpopo and beyond, our app delivers real-time, location-based alerts and emergency reporting—even when the internet is spotty. Built using cutting-edge C# .NET MAUI and SQLite technology, Community Connect seamlessly connects residents, local law enforcement, and community organizations in a secure, easy-to-use ecosystem.
+
+Our mission is simple: to empower every community member to be their own vigilant neighbor—ensuring that critical safety information is shared instantly, and help is always just a tap away. Whether you're reporting suspicious activity or coordinating with local responders, Community Connect transforms fragmented communication into a unified, life-saving network.
+
+Join us in making South African neighborhoods safer, more connected, and resilient—because when it comes to community safety, every alert counts and every voice matters."
+                   FontSize="16"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   LineBreakMode="WordWrap"/>
+            <Label Text="Version: 1.0.0"
+                   FontSize="14"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

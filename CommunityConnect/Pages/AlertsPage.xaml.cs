@@ -1,24 +1,29 @@
-using CommunityConnect.ViewModel;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using CommunityConnect.model;
+﻿using System.Collections.ObjectModel;
 
-namespace CommunityConnect.Pages;
-
-public partial class AlertsViewModel : CommunityToolkit.Mvvm.ComponentModel.ObservableObject
+namespace CommunityConnect.Pages
 {
-    public ObservableCollection<Alert> Alerts { get; } = new();
-    public IRelayCommand LoadAlertsCommand { get; }
-
-    public AlertsViewModel()
+    public partial class AlertsPage : ContentPage
     {
-        LoadAlertsCommand = new RelayCommand(async () => await LoadAlertsAsync());
+        public ObservableCollection<Alert> Alerts { get; set; }
+
+        public AlertsPage()
+        {
+            InitializeComponent();
+            Alerts = new ObservableCollection<Alert>
+            {
+                new Alert { Title = "🚗 Accident Alert!", Location = "Main Street & 5th Avenue", TimeReported = "Reported 5 min ago" },
+                new Alert { Title = "🔥 Fire Alert!", Location = "Downtown Mall, Entrance 3", TimeReported = "Reported 10 min ago" },
+                new Alert { Title = "💧 Water Leak!", Location = "Pinewood Estate, Block B", TimeReported = "Reported 20 min ago" }
+            };
+
+            BindingContext = this;
+        }
     }
 
-    private async Task LoadAlertsAsync()
+    public class Alert
     {
-        await Task.Delay(100);
+        public string Title { get; set; }
+        public string Location { get; set; }
+        public string TimeReported { get; set; }
     }
 }

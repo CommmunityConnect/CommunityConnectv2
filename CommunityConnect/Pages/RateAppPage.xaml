@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommunityConnect.Pages.RateAppPage"
+             Title="RateAppPage" BackgroundColor="WhiteSmoke">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Rate Our App"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+            <Label Text="We value your feedback! Please take a moment to rate our app."
+                   FontSize="16"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   LineBreakMode="WordWrap"/>
+            <Button Text="Rate on App Store" 
+                    Command="{Binding RateAppCommand}"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

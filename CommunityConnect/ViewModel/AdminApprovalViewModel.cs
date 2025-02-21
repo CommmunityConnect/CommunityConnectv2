@@ -1,49 +1,53 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+using System.Windows.Input;
 using CommunityConnect.model;
-using CommunityConnect.Model;
-using CommunityConnect.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
+ 
+using Microsoft.Maui.Controls;
 
-namespace CommunityConnect.ViewModel
+namespace CommunityConnect.ViewModels
 {
-    public partial class AdminApprovalViewModel : CommunityToolkit.Mvvm.ComponentModel.ObservableObject
+    public class AdminApprovalViewModel : BindableObject
     {
-        public ObservableCollection<IncidentReport> PendingReports { get; } = new();
+        public ObservableCollection<Report> PendingReports { get; set; }
+        public ICommand ApproveReportCommand { get; }
+        public ICommand DeclineReportCommand { get; }
 
         public AdminApprovalViewModel()
         {
-            LoadPendingReports();
+            PendingReports = new ObservableCollection<Report>
+            {
+                
+                new Report { IncidentType = "Accident", Description = "Car accident at intersection.", Location = "5th Avenue", ImageUrl = "accidentimage.png" }
+            };
+
+            ApproveReportCommand = new Command<Report>(ApproveReport);
+            DeclineReportCommand = new Command<Report>(DeclineReport);
         }
 
-        private void LoadPendingReports()
+        private async void ApproveReport(Report report)
         {
-            PendingReports.Clear();
-            foreach (var report in IncidentReportService.GetPendingReports())
+            if (report == null) return;
+
+            bool confirm = await App.Current.MainPage.DisplayAlert("Confirm", "Are you sure you want to approve this report?", "Yes", "No");
+            if (confirm)
             {
-                PendingReports.Add(report);
+                PendingReports.Remove(report);
+                await App.Current.MainPage.DisplayAlert("Success", "Report has been successfully approved.", "OK");
+                await Shell.Current.GoToAsync("..");
             }
         }
 
-        public void ApproveReport(IncidentReport report)
+        private async void DeclineReport(Report report)
         {
-            if (report != null)
-            {
-                IncidentReportService.UpdateReportStatus(report.Id, true);
-                LoadPendingReports(); // Refresh list after approving
-                                      // Notify AlertsViewModel to refresh approved reports
-                AlertsViewModel.Instance.LoadApprovedReports();
-            }
-        }
+            if (report == null) return;
 
-        public void DeclineReport(IncidentReport report)
-        {
-            if (report != null)
+            bool confirm = await App.Current.MainPage.DisplayAlert("Confirm", "Are you sure you want to decline this report?", "Yes", "No");
+            if (confirm)
             {
-                IncidentReportService.UpdateReportStatus(report.Id, false);
-                LoadPendingReports(); // Refresh list after declining
+                PendingReports.Remove(report);
+                await App.Current.MainPage.DisplayAlert("Declined", "Report has been declined.", "OK");
+                await Shell.Current.GoToAsync("..");
             }
         }
     }
-
 }

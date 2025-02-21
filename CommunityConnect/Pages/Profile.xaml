@@ -21,12 +21,12 @@
 
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand" Spacing="10">
-                <Image
+                <Image  x:Name="ProfileImage"
                     Source="profilepic.png"
                     Aspect="AspectFill"
                     HeightRequest="160"
                     WidthRequest="160"
-                        BackgroundColor="White"/>
+                        BackgroundColor="#4e7c9e"/>
 
             </HorizontalStackLayout>
 
@@ -35,31 +35,25 @@
                 HorizontalOptions="Center">
 
                 <!-- user's fullname -->
-                <Label 
-                    Text="User's fullname"
+                <Label x:Name="FullNameLabel"
+                    Text="Mabore"
                     TextColor="White"
                     FontSize="18" FontAttributes="Bold" 
                         HorizontalOptions="Center"/>
                 <!-- user's email -->
-                <Label
-                    Text="usersemail@gmail.com"
+                <Label x:Name="EmailLabel"
+                    Text="mabore@gmail.com"
                     TextColor="White"
                     FontSize="14" HorizontalOptions="Center" />
             </VerticalStackLayout>
             <!-- line seperator -->
 
-            <!-- profile title -->
-            <Label
-                Text="My Profile"
-                TextColor="white"
-                FontAttributes="Bold"
-                FontSize="24"
-                HorizontalOptions="Center" Margin="0,30,0,10"/>
+           
             <!-- Frame Buttons Section -->
             <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
 
                 <!-- change password frame -->
-                <Frame HeightRequest="70" WidthRequest="350" CornerRadius="12" Padding="0"
+                <Frame GestureRecognizers="{TapGestureRecognizer Tapped='OnChangePasswordTapped'}" HeightRequest="70" WidthRequest="350" CornerRadius="12" Padding="0"
                        BackgroundColor="white" BorderColor="#4e7c9e" HasShadow="True"
                 >
 
@@ -88,7 +82,7 @@
                     </HorizontalStackLayout>
                 </Frame>
                 <!-- delete account frame -->
-                <Frame
+                <Frame GestureRecognizers="{TapGestureRecognizer Tapped='OnDeleteAccountTapped'}"
                 HeightRequest="75"
                 WidthRequest="350"
                 CornerRadius="12"
@@ -106,7 +100,7 @@
                 </Frame>
 
                 <!-- help frame -->
-                <Frame
+                <Frame GestureRecognizers="{TapGestureRecognizer Tapped='OnHelpTapped'}"
                 HeightRequest="75"
                 WidthRequest="350"
                 CornerRadius="12"
@@ -125,7 +119,7 @@
 
 
                 <!-- rate app frame -->
-                <Frame
+                <Frame GestureRecognizers="{TapGestureRecognizer Tapped='OnRateAppTapped'}"
                 HeightRequest="70"
                 WidthRequest="350"
                 CornerRadius="12"
@@ -145,7 +139,7 @@
 
 
                 <!-- about app frame -->
-                <Frame
+                <Frame GestureRecognizers="{TapGestureRecognizer Tapped='OnAboutAppTapped'}"
                 HeightRequest="70"
                 WidthRequest="350"
                 CornerRadius="12"
@@ -171,7 +165,7 @@
                 HorizontalOptions="Center" Margin="0,30,0,10" />
                 
                 <!-- logout frame -->
-                <Frame
+                <Frame GestureRecognizers="{TapGestureRecognizer Tapped='OnLogoutTapped'}"
                HeightRequest="70"
                WidthRequest="350"
                CornerRadius="12"

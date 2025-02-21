@@ -32,7 +32,7 @@
                         Command="{Binding NavigateToValidationRequestsCommand}" Padding="45" />
 
                 <!-- Manage Users Button -->
-                <Button Text="Manage Users"
+                <Button Text="Announcemments"
                         BackgroundColor="#4e7c9e"
                         TextColor="White"
                         FontSize="20"

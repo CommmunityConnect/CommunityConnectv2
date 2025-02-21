@@ -1,28 +1,48 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CommunityConnect.Pages.AdminApprovalPage"
-             Title="Admin Approval Page">
+             Title="Admin Approval Page"
+             xmlns:vm="clr-namespace:CommunityConnect.ViewModels">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="1,1">
+            <GradientStop Color="#4e7c9e" Offset="0.1" />
+            <GradientStop Color="#1c2c38" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.BindingContext>
+        <vm:AdminApprovalViewModel/>
+    </ContentPage.BindingContext>
+
     <VerticalStackLayout Padding="20">
         <Label Text="Pending Incidents" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
-        <ListView ItemsSource="{Binding PendingReports}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Title}" FontSize="20" />
-                            <Label Text="{Binding Description}" FontSize="14" />
-                            <Label Text="{Binding Location}" FontSize="14" />
-                            <StackLayout Orientation="Horizontal">
-                                <Button Text="Approve" Command="{Binding Source={x:Reference Name=AdminApprovalPage}, Path=BindingContext.ApproveReportCommand}" CommandParameter="{Binding}" />
-                                <Button Text="Decline" Command="{Binding Source={x:Reference Name=AdminApprovalPage}, Path=BindingContext.DeclineReportCommand}" CommandParameter="{Binding}" />
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
 
-        <Label Text="No pending incidents" FontSize="18" TextColor="Gray" 
-               IsVisible="{Binding PendingReports.Count, Converter={StaticResource IsEmptyConverter}}"/>
+        <CollectionView ItemsSource="{Binding PendingReports}" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" CornerRadius="10" BackgroundColor="White" Margin="5"  >
+                        <VerticalStackLayout>
+                            <Image Source="{Binding ImageUrl}" HeightRequest="300"   Aspect="AspectFill" />
+                            <Label Text="{Binding IncidentType}" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}" FontSize="14" TextColor="Gray"/>
+                            <Label Text="Location: {Binding Location}" FontSize="14" FontAttributes="Italic"/>
+
+                            <HorizontalStackLayout Spacing="10" Margin="5">
+                                <Button Text="Approve" BackgroundColor="Green" TextColor="White"
+                                        Command="{Binding ApproveReportCommand}"
+                                        CommandParameter="{Binding}" WidthRequest="300" HorizontalOptions="CenterAndExpand"/>
+
+                                <Button Text="Decline" BackgroundColor="Red" TextColor="White"
+                                        Command="{Binding DeclineReportCommand}"
+                                        CommandParameter="{Binding}" WidthRequest="300" HorizontalOptions="CenterAndExpand"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                        
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        
     </VerticalStackLayout>
 </ContentPage>

@@ -8,6 +8,7 @@ using CommunityConnect.ViewModel;
  
 using CommunityConnect.Data;
 using CommunityConnect.Services;
+using CommunityConnect.ViewModels;
 
 namespace CommunityConnect
 {

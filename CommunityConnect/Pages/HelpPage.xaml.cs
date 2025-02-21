@@ -1,8 +1,8 @@
 namespace CommunityConnect.Pages;
 
-public partial class ChatBotPage : ContentPage
+public partial class HelpPage : ContentPage
 {
-	public ChatBotPage()
+	public HelpPage()
 	{
 		InitializeComponent();
 	}
