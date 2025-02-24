@@ -5,6 +5,9 @@
              x:Class="CommunityConnect.Pages.IncidentReportPage"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="True">
+    <ContentPage.BindingContext>
+        <vm:IncidentReportViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,1">
             <GradientStop Color="#4e7c9e" Offset="0.1" />
@@ -29,6 +32,7 @@
                             BackgroundColor="#F5F5F5"
                             TextColor="#1c2c38"
                             HeightRequest="100"
+                            AutoSize="TextChanges"
                              />
                 </VerticalStackLayout>
             </Frame>

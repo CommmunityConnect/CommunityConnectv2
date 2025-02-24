@@ -28,7 +28,8 @@
                 <!-- Police Emergency -->
                 <Frame CornerRadius="20" BackgroundColor="#ffffff" Padding="15" HasShadow="True" Margin="0,5">
                     <StackLayout Orientation="Horizontal" Spacing="15">
-                        <Label Text="&#xf0f4;" 
+                        <Image Source="policeman.png" HeightRequest="40"/>
+                        <Label 
                                FontFamily="FontAwesome" 
                                FontSize="50" 
                                TextColor="#1c2c38" />
@@ -46,7 +47,8 @@
                 <!-- Ambulance or Fire -->
                 <Frame CornerRadius="20" BackgroundColor="#ffffff" Padding="15" HasShadow="True" Margin="0,5">
                     <StackLayout Orientation="Horizontal" Spacing="15">
-                        <Label Text="&#xf0f9;" 
+                        <Image Source="ambulance.png" HeightRequest="40"/>
+                        <Label   
                                FontFamily="FontAwesome" 
                                FontSize="50" 
                                TextColor="#1c2c38" />
@@ -64,7 +66,8 @@
                 <!-- Childline -->
                 <Frame CornerRadius="20" BackgroundColor="#ffffff" Padding="15" HasShadow="True" Margin="0,5">
                     <StackLayout Orientation="Horizontal" Spacing="15">
-                        <Label Text="&#xf1f1;" 
+                        <Image Source="phonecall.png" HeightRequest="40"/>
+                        <Label  
                                FontFamily="FontAwesome" 
                                FontSize="50" 
                                TextColor="#1c2c38" />

@@ -171,9 +171,7 @@
                CornerRadius="12"
                Padding="0"
                BackgroundColor="#e74c3c" BorderColor="#e74c3c" HasShadow="True">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnLogoutTapped" />
-                    </Frame.GestureRecognizers>
+                     
                     <HorizontalStackLayout>
                         <Image Source="logout.png" Margin="20" Aspect="AspectFit" 
                                HeightRequest="30" WidthRequest="30" />

@@ -1,55 +1,73 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Text.Json;
 using CommunityConnect.model;
 
 namespace CommunityConnect.Services
 {
     public static class IncidentReportService
     {
-        private static int nextId = 1; // Initialize a counter for IDs
+        private static readonly string filePath = Path.Combine(FileSystem.AppDataDirectory, "incident_reports.json");
 
-        public static ObservableCollection<IncidentReport> IncidentReports { get; set; } = new();
-
-        public static void SeedTestData()
+        public static async Task<List<IncidentReport>> LoadReportsAsync()
         {
-            if (IncidentReports.Count == 0)
+            try
             {
-                IncidentReports.Add(new IncidentReport
-                {
-                    Id = nextId++, // Incrementing ID for test data
-                    Title = "Test Report",
-                    Description = "This is a test incident report.",
-                    Location = "Test Location",
-                    IsApproved = false
-                });
+                var json = await File.ReadAllTextAsync(filePath);
+                var reports = JsonSerializer.Deserialize<List<IncidentReport>>(json);
+                return reports;
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception as needed
+                Debug.WriteLine($"Error loading reports from JSON: {ex.Message}");
+                return new List<IncidentReport>(); // Return an empty list in case of an error
             }
         }
 
-        public static bool SubmitIncident(IncidentReport report)
+
+        public static async Task SaveReportsAsync(List<IncidentReport> reports)
         {
-            report.Id = nextId++; // Assign a unique ID
-            report.IsApproved = false;
-            IncidentReports.Add(report);
-            return true;
+            string json = JsonSerializer.Serialize(reports);
+            await File.WriteAllTextAsync(filePath, json);
         }
 
-        public static ObservableCollection<IncidentReport> GetPendingReports()
+        public static async Task SubmitReportAsync(IncidentReport report)
         {
-            return new ObservableCollection<IncidentReport>(IncidentReports.Where(r => !r.IsApproved));
+            var reports = await LoadReportsAsync();
+            reports.Add(report);
+            await SaveReportsAsync(reports);
         }
 
-        public static ObservableCollection<IncidentReport> GetApprovedReports()
+        public static async Task ApproveReportAsync(string reportId)
         {
-            return new ObservableCollection<IncidentReport>(IncidentReports.Where(r => r.IsApproved));
-        }
-
-        public static void UpdateReportStatus(int id, bool isApproved)
-        {
-            var report = IncidentReports.FirstOrDefault(r => r.Id == id);
+            var reports = await LoadReportsAsync();
+            var report = reports.FirstOrDefault(r => r.Id == reportId);
             if (report != null)
             {
-                report.IsApproved = isApproved;
+                report.IsApproved = true;
+                await SaveReportsAsync(reports);
             }
         }
+
+        public static async Task DeclineReportAsync(string reportId)
+        {
+            var reports = await LoadReportsAsync();
+            reports.RemoveAll(r => r.Id == reportId);
+            await SaveReportsAsync(reports);
+        }
+
+        public static async Task<List<IncidentReport>> GetApprovedReportsAsync()
+        {
+            var reports = await LoadReportsAsync();
+            return reports.Where(r => r.IsApproved).ToList();
+        }
+
+        internal static async Task SaveReportAsync(IncidentReport incident)
+        {
+            throw new NotImplementedException();
+        }
     }
+
 
 }

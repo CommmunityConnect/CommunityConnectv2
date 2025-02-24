@@ -45,7 +45,9 @@ namespace CommunityConnect.Pages
 
         private async void OnLogoutTapped(object sender, EventArgs e)
         {
+            
             await DisplayAlert("Logout", "You have been logged out.", "OK");
+            Application.Current.MainPage = new NavigationPage(new signin());
             // Navigate to login page if needed
         }
 

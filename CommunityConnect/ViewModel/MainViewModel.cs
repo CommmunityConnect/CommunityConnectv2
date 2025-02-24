@@ -36,7 +36,7 @@ namespace CommunityConnect.ViewModel
 
         public ObservableCollection<Person> Persons { get; } = new ObservableCollection<Person>
         {
-            new Person { Name = "John Doe", Age = 25, Photo = "john_doe.png", Description = "Height: 5'10\", scar on forehead", LastSeenLocation = "New York", DateLastSeen = "2025-01-15", Status = "Critical" },
+            new Person { Name = "John Doe", Age = 25, Photo = "john_doe.png", Description = "Height: 5'10\", scar on forehead", LastSeenLocation = "Makanye", DateLastSeen = "2025-01-15", Status = "Critical" },
             new Person { Name = "Jane Smith", Age = 30, Photo = "jane_smith.png", Description = "Height: 5'6\", tattoo on right arm", WantedFor = "Robbery", Status = "High Risk" }
         };
 

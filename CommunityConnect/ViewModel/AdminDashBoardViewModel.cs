@@ -7,6 +7,7 @@ using System.Windows.Input;
 using CommunityConnect.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CommunityConnect.ViewModel
 {
@@ -20,6 +21,9 @@ namespace CommunityConnect.ViewModel
         [RelayCommand]
         private async Task NavigateToValidationRequests()
         {
+            var alertsViewModel = new AlertsViewModel(); // Create an instance of AlertsViewModel
+            var adminApprovalPage = new AdminApprovalPage(alertsViewModel); // Pass it to AdminApprovalPage
+            
             // Absolute navigation route to Admin Approval Page
             await Shell.Current.GoToAsync(nameof(AdminApprovalPage));
         }

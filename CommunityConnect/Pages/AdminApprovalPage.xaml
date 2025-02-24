@@ -10,39 +10,40 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <ContentPage.BindingContext>
-        <vm:AdminApprovalViewModel/>
-    </ContentPage.BindingContext>
+     
+    
+    <ScrollView> 
+    <StackLayout Padding="20">
+        <Label Text="Pending Incident Reports" FontSize="Large" FontAttributes="Bold"/>
 
-    <VerticalStackLayout Padding="20">
-        <Label Text="Pending Incidents" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
-
-        <CollectionView ItemsSource="{Binding PendingReports}" Margin="10">
+        <CollectionView ItemsSource="{Binding PendingReports}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="15" CornerRadius="10" BackgroundColor="White" Margin="5"  >
-                        <VerticalStackLayout>
-                            <Image Source="{Binding ImageUrl}" HeightRequest="300"   Aspect="AspectFill" />
-                            <Label Text="{Binding IncidentType}" FontSize="18" FontAttributes="Bold"/>
-                            <Label Text="{Binding Description}" FontSize="14" TextColor="Gray"/>
-                            <Label Text="Location: {Binding Location}" FontSize="14" FontAttributes="Italic"/>
+                    <Frame BorderColor="Gray" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding IncidentType}" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}" FontSize="Small" TextColor="Black" />
+                            <Label Text="{Binding Location}" FontSize="Small" TextColor="Black" FontAttributes="Italic"/>
+                            <Image Source="{Binding ImagePath}" HeightRequest="100"/>
 
-                            <HorizontalStackLayout Spacing="10" Margin="5">
-                                <Button Text="Approve" BackgroundColor="Green" TextColor="White"
-                                        Command="{Binding ApproveReportCommand}"
-                                        CommandParameter="{Binding}" WidthRequest="300" HorizontalOptions="CenterAndExpand"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Button Text="Approve" 
+                                        BackgroundColor="Green" 
+                                        TextColor="White" HorizontalOptions="Start" WidthRequest="350"
+                                        Command="{Binding Source={x:Reference Name=AdminApprovalPage}, Path=BindingContext.ApproveCommand}"
+                                        CommandParameter="{Binding .}" />
 
-                                <Button Text="Decline" BackgroundColor="Red" TextColor="White"
-                                        Command="{Binding DeclineReportCommand}"
-                                        CommandParameter="{Binding}" WidthRequest="300" HorizontalOptions="CenterAndExpand"/>
-                            </HorizontalStackLayout>
-                        </VerticalStackLayout>
-                        
+                                <Button Text="Decline" 
+                                        BackgroundColor="Red" 
+                                        TextColor="White" HorizontalOptions="End" WidthRequest="350"
+                                        Command="{Binding Source={x:Reference Name=AdminApprovalPage}, Path=BindingContext.DeclineCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </StackLayout>
+                        </StackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-        
-    </VerticalStackLayout>
+    </StackLayout>
+    </ScrollView>
 </ContentPage>

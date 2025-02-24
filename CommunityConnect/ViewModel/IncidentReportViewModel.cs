@@ -1,6 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using CommunityConnect.model;
 using CommunityConnect.Services;
@@ -52,21 +50,32 @@ namespace CommunityConnect.ViewModel
 
         public IncidentReportViewModel()
         {
-            // Access IncidentReports directly from the static service
-            IncidentReports = IncidentReportService.IncidentReports;
+            IncidentReports = new ObservableCollection<IncidentReport>();
 
-            SubmitReportCommand = new Command(OnSubmitReport);
-            UploadPhotoCommand = new Command(OnUploadPhoto);
+            // Load reports asynchronously
+            LoadReports();
+
+            SubmitReportCommand = new Command(async () => await OnSubmitReport());
+            UploadPhotoCommand = new Command(async () => await OnUploadPhoto());
         }
 
-        private void OnSubmitReport()
+        private async void LoadReports()
+        {
+            var reports = await IncidentReportService.LoadReportsAsync();
+            foreach (var report in reports)
+            {
+                IncidentReports.Add(report);
+            }
+        }
+
+        private async Task OnSubmitReport()
         {
             if (string.IsNullOrWhiteSpace(Description) ||
                 string.IsNullOrWhiteSpace(IncidentType) ||
                 string.IsNullOrWhiteSpace(Location) ||
                 Photo == null)
             {
-                Application.Current.MainPage.DisplayAlert("Error", "Please fill all fields before submitting.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "Please fill all fields before submitting.", "OK");
                 return;
             }
 
@@ -79,15 +88,14 @@ namespace CommunityConnect.ViewModel
                 IsApproved = false
             };
 
-            // Use IncidentReportService directly (since it's static)
-            IncidentReportService.SubmitIncident(incident);
+            await IncidentReportService.SubmitReportAsync(incident);
 
-            Application.Current.MainPage.DisplayAlert("Success", "Report submitted successfully!", "OK");
+            await Application.Current.MainPage.DisplayAlert("Success", "Report submitted successfully!", "OK");
 
-            Shell.Current.GoToAsync("MainPage");
+            await Shell.Current.GoToAsync("MainPage");
         }
 
-        private async void OnUploadPhoto()
+        private async Task OnUploadPhoto()
         {
             var result = await FilePicker.PickAsync(new PickOptions
             {

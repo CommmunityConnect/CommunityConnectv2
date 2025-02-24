@@ -11,8 +11,15 @@ public partial class AdminApprovalPage : ContentPage
     public AdminApprovalPage()
     {
         InitializeComponent();
-        BindingContext = new AdminApprovalViewModel(); // Set the view model
+        BindingContext = new AdminApprovalViewModel(new AlertsViewModel()); // Set the view model
     }
-   
+    // Constructor with AlertsViewModel parameter
+    public AdminApprovalPage(AlertsViewModel alertsViewModel)
+    {
+        InitializeComponent();
+        BindingContext = new AdminApprovalViewModel(alertsViewModel); // Set the provided view model
+    }
 }
+   
+
 
